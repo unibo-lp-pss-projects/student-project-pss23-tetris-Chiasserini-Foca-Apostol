@@ -8,8 +8,13 @@ public class Main {
         //Create JFrame and set it visible
         JFrame gameWindow = new JFrame("Tetris"); 
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameWindow.setResizable(false);
+        gameWindow.setResizable(false);        
+
+        //add GamePanel to the gameWindow
+        GamePanel gp = new GamePanel();
+        gameWindow.add(gp);
         gameWindow.pack();
+
         gameWindow.setLocationRelativeTo(null);
         gameWindow.setVisible(true);
     }
