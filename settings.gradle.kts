@@ -1,1 +1,1 @@
-rootProject.name = "progettogradle1"
+rootProject.name = "pss-project-tetris"
