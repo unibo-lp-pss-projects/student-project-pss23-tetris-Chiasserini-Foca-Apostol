@@ -2,6 +2,8 @@ package main.java.it.unibo.tetris;
 
 import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
@@ -14,12 +16,16 @@ public class GamePanel extends JPanel implements Runnable{
         //refresh rate
         final int FPS = 60;
         Thread gameThread;
+
+        PlayManager playManager;
     
         //constructor with default settings
         public GamePanel () {
             this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
             this.setBackground(Color.black);
             this.setLayout(null);
+
+            playManager = new PlayManager();
         }
     
         //launch the game
@@ -49,5 +55,18 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
         }
-    
+
+        //update
+        public void update() {
+            playManager.update();
+        }
+
+        //paint component
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g); 
+
+            Graphics2D g2 = (Graphics2D) g;
+            playManager.draw(g2);
+        }
+        
 }
