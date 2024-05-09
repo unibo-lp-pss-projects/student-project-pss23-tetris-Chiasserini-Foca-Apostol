@@ -2,6 +2,7 @@ package main.java.it.unibo.tetris;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 
 public class PlayManager {
@@ -38,5 +39,12 @@ public class PlayManager {
             g2.setColor(Color.white);
             g2.setStroke(new BasicStroke(4f));
             g2.drawRoundRect(left_x - BORDER, top_y + TITLE_HEIGHT - BORDER, WIDTH + BORDER * 2, HEIGHT + BORDER * 2, 25, 25);
+
+            //Draw the nextMino window
+            int x = right_x + 130;
+            int y = bottom_y - 200;
+            g2.drawRoundRect(x, y + TITLE_HEIGHT, 200, 200, 25, 25);
+            g2.setFont(new Font("Arial", Font.PLAIN, 30));
+            g2.drawString("NEXT", x + 60, y + TITLE_HEIGHT + 60);
         }
 }
