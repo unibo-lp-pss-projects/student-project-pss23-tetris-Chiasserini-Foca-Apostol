@@ -10,5 +10,20 @@ public class KeyHandler implements KeyListener {
             rightPressed,
             pausePressed;
 
-    
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Not implemented
+    }
+
+    // Method thad manage what key is being pressed
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e){
+        //Not implemented
+    }
 }
