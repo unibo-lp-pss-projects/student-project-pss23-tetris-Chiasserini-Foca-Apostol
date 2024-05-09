@@ -5,25 +5,46 @@ import it.unibo.tetris.PlayManager;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+/**
+ * Class for a {@link Block} that extends {@link Rectangle}
+ */
 public class Block extends Rectangle {
     
-    // Constant for the margin of the block
+     /**
+     * Constant for the margin between the {@link Block}s
+     */
     public static final int MARGIN = 2;
 
-    // Constant for the size of the block
+     /**
+     * Constant for the size of the {@link Block}
+     */
     public static final int SIZE = 30;
 
-    // Coordinates ot the block
+    /**
+     * Coordinates for the {@link Block}
+     */
     public int x, y;
 
+     /**
+     * {@link Color} for the {@link Block}
+     */
     public Color c;
 
-    // Create Constructor of "Block"
+     /**
+     * Constructor for {@link Block} class which creates a new Block object with
+     * a given {@link Color}.
+     * 
+     * * @param c the {@link Color} to be used.
+     */
     public Block(Color c) { 
         this.c = c;
     }
 
-    // Drawing the "Block"
+     /**
+      * Draws the {@link Block} on the given {@link Graphics2D} object.
+      *
+      * @param g2 The {@link Graphics2D} object to draw on.
+      */
     public void draw(Graphics2D g2) { 
         g2.setColor(c);
         //g2.fillRect(x + MARGIN, y + PlayManager.TITLE_HEIGHT + MARGIN, SIZE - (MARGIN * 2), SIZE - (MARGIN * 2));
