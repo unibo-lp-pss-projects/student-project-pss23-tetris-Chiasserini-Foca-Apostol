@@ -112,7 +112,40 @@ public class Mino_Impl implements Mino {
 
     @Override
     public void checkRotationCollision() {
-        // TO DO
+
+        leftCollision = false;
+        rightCollision = false;
+        bottomCollision = false;
+
+        /*
+         * Check StaticBlock collision 
+         */
+        checkStaticBlockCollision();
+
+        /*
+         * Check left wall collision
+         */
+        for (int i = 0; i < b.length; i++) {
+            if (tempB[i].x < PlayManager.left_x) {
+                leftCollision = true;
+            }
+        }
+        /*
+         * Check right wall collision
+         */
+        for (int i = 0; i < b.length; i++) {
+            if (tempB[i].x + Block.SIZE > PlayManager.right_x) {
+                rightCollision = true;
+            }
+        }
+        /*
+         * Check bottom bound collision
+         */
+        for (int i = 0; i < b.length; i++) {
+            if (tempB[i].y + Block.SIZE > PlayManager.bottom_y) {
+                bottomCollision = true;
+            }
+        }
     }
 
     @Override
