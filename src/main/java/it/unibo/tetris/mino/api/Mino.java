@@ -13,5 +13,15 @@ public interface Mino {
     // Updates the x and y coordinates of the mino based on the given direction.
     public void updateXY(int direction);
 
-    
+    // Sets the next direction for the mino
+    public void getNextDirection(int direction);
+
+    // Checks for collisions when moving the mino
+    public void checkMovementCollision();
+
+    // Checks for collisions when rotating the mino
+    public void checkRotationCollision();
+
+    // Checks for collisions when the mino becomes static.
+    public void checkStaticBlockCollision();
 }
