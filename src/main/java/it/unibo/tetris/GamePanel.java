@@ -7,19 +7,31 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+/**
+ * Class {@link GamePanel} that extends {@link JPanel}
+ * and implements {@link Runnable}
+ * 
+ * Used for draw the window and launch the game.
+ */
 public class GamePanel extends JPanel implements Runnable{
     
-        //Dimensions of the window
+        /**
+         * Dimensions of the window.
+         */
         public static final int WIDTH = 840;
         public static final int HEIGHT = 900;
     
-        //refresh rate
+        /**
+         * Utility variables for manage window properties.
+         */
         final int FPS = 60;
         Thread gameThread;
 
         PlayManager playManager;
     
-        //constructor with default settings
+        /**
+         * {@link GamePanel} initial settings.
+         */
         public GamePanel () {
             this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
             this.setBackground(Color.black);
@@ -28,13 +40,18 @@ public class GamePanel extends JPanel implements Runnable{
             playManager = new PlayManager();
         }
     
-        //launch the game
+        /**
+         * Launch the game.
+         */
         public void launchGame() {
             gameThread = new Thread(this);
             gameThread.start();
         }
     
-        //Gameloop initialization
+        /**
+         * Run method.
+         * Set repaint frequency.
+         */
         @Override
         public void run() {
             double drawIntervental = 1000000000 / FPS;
@@ -42,7 +59,9 @@ public class GamePanel extends JPanel implements Runnable{
             long lastTime = System.nanoTime();
             long currentTime;
     
-            //refresh window
+            /*
+            * Repaint 60 times per seconds (60 FPS).
+            */
             while (gameThread != null) {
                 currentTime = System.nanoTime();
     
@@ -56,12 +75,16 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-        //update
+        /*
+        * Update the game. 
+        */
         public void update() {
             playManager.update();
         }
 
-        //paint component
+        /**
+         * Paint the {@link Graphics2D component}.
+         */
         public void paintComponent(Graphics g) {
             super.paintComponent(g); 
 
