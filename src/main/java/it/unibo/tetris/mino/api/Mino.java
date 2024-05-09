@@ -1,6 +1,7 @@
 package main.java.it.unibo.tetris.mino.api;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public interface Mino {
 
@@ -24,4 +25,10 @@ public interface Mino {
 
     // Checks for collisions when the mino becomes static.
     public void checkStaticBlockCollision();
+
+    // Updates the mino's state based on its current state and game rules.
+    public void update();
+
+    // Draws the mino on the given Graphics2D object.
+    public void draw(Graphics2D g2);
 }
