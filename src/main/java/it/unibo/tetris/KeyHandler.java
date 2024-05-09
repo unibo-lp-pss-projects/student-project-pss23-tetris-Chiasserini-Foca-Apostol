@@ -3,6 +3,10 @@ package main.java.it.unibo.tetris;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Class {@link KeyHandler} that handles key events.
+ * implements {@link KeyListener}.
+ */
 public class KeyHandler implements KeyListener {
     
     public static boolean upPressed,
@@ -13,17 +17,21 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // Not implemented
+        /*
+         * Not implemented
+         */
     }
 
-    // Method that manage what key is being pressed
-
+    /**
+     * Method that manage what key is being pressed.
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        //Checks what key is being pressed
-
+        /*
+         * Check waht key is being pressed.
+         */
         if (code == KeyEvent.VK_W) {
             upPressed = true;
         }
@@ -37,7 +45,9 @@ public class KeyHandler implements KeyListener {
             rightPressed = true;
         }
 
-        //Pause if spacebar pressed
+        /*
+         * Pause if spacebar is pressed. 
+         */
         if(code == KeyEvent.VK_SPACE) {
             if (pausePressed) {
                 pausePressed = false;
@@ -50,6 +60,8 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e){
-        //Not implemented
+        /*
+         * Not implemented
+         */
     }
 }
