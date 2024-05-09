@@ -1,9 +1,10 @@
 package main.java.it.unibo.tetris.mino.api;
 
 import java.awt.Rectangle;
-import it.unibo.tetris.PlayManager;
 import java.awt.Color;
 import java.awt.Graphics2D;
+
+import main.java.it.unibo.tetris.PlayManager;
 
 /**
  * Class for a {@link Block} that extends {@link Rectangle}
