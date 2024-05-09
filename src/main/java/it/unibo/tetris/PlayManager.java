@@ -21,6 +21,11 @@ public class PlayManager {
         public static int right_x;
         public static int top_y;
         public static int bottom_y;
+
+        //Variables for Score.
+        int level = 1;
+        int lines;
+        int score;
     
         public PlayManager() {
             //Set Playarea dimensions
@@ -46,5 +51,16 @@ public class PlayManager {
             g2.drawRoundRect(x, y + TITLE_HEIGHT, 200, 200, 25, 25);
             g2.setFont(new Font("Arial", Font.PLAIN, 30));
             g2.drawString("NEXT", x + 60, y + TITLE_HEIGHT + 60);
+
+            //Draw Scoreboard
+            g2.drawRoundRect(x, top_y + TITLE_HEIGHT, 250, 300, 25, 25);
+            x += 40;
+            y = top_y + TITLE_HEIGHT + 90;
+            g2.drawString("LEVEL:  " + level, x, y);
+            y += 70;
+            g2.drawString("LINES:  " + lines, x, y);
+            y += 70;
+            g2.drawString("SCORE:  " + score, x, y);
+            y += 70;
         }
 }
