@@ -1,7 +1,9 @@
 package main.java.it.unibo.tetris.mino.api;
 
 import java.awt.Rectangle;
+import it.unibo.tetris.PlayManager;
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public class Block extends Rectangle {
     
@@ -19,6 +21,13 @@ public class Block extends Rectangle {
     // Create Constructor of "Block"
     public Block(Color c) { 
         this.c = c;
+    }
+
+    // Drawing the "Block"
+    public void draw(Graphics2D g2) { 
+        g2.setColor(c);
+        //g2.fillRect(x + MARGIN, y + PlayManager.TITLE_HEIGHT + MARGIN, SIZE - (MARGIN * 2), SIZE - (MARGIN * 2));
+        g2.fillRoundRect(x + MARGIN, y + PlayManager.TITLE_HEIGHT + MARGIN, SIZE - (MARGIN * 2), SIZE - (MARGIN * 2), 8, 8);
     }
 
 }
