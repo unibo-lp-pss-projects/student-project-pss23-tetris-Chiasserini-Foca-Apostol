@@ -62,5 +62,14 @@ public class PlayManager {
             y += 70;
             g2.drawString("SCORE:  " + score, x, y);
             y += 70;
+
+            //Draw Game Title.
+            x = WIDTH/4;
+            y = top_y + 30;
+            g2.setColor(Color.white);
+            g2.setFont(new Font("Verdana", Font.ITALIC, 60));
+            g2.drawString("Alex - Raul - Tommy", x + 20, y);
+            g2.setFont(new Font("Verdana", Font.BOLD, 80));
+            g2.drawString("TETRIS", x * 2 + 60, y + 100);
         }
 }
