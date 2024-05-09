@@ -3,6 +3,7 @@ package main.java.it.unibo.tetris.mino;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import it.unibo.tetris.PlayManager;
 import main.java.it.unibo.tetris.mino.api.Block;
 import main.java.it.unibo.tetris.mino.api.Mino;
 
@@ -68,12 +69,45 @@ public class Mino_Impl implements Mino {
 
     @Override
     public void getNextDirection(int direction) {
-        // TO DO
+        
     }
 
     @Override
     public void checkMovementCollision() {
-        // TO DO
+ 
+        leftCollision = false;
+        rightCollision = false;
+        bottomCollision = false;
+
+        /*
+         * Check StaticBlock collision 
+         */ 
+        checkStaticBlockCollision();
+
+        /*
+         * Check left wall collision
+         */
+        for (int i = 0; i < b.length; i++) {
+            if (b[i].x == PlayManager.left_x) {
+                leftCollision = true;
+            }
+        }
+        /*
+         * Check right wall collision
+         */
+        for (int i = 0; i < b.length; i++) {
+            if (b[i].x + Block.SIZE == PlayManager.right_x) {
+                rightCollision = true;
+            }
+        }
+        /*
+         * Check bottom bound collision
+         */
+        for (int i = 0; i < b.length; i++) {
+            if (b[i].y + Block.SIZE == PlayManager.bottom_y) {
+                bottomCollision = true;
+            }
+        }
     }
 
     @Override
