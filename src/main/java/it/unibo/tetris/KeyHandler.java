@@ -7,6 +7,7 @@ public class KeyHandler implements KeyListener {
     
     public static boolean upPressed,
             downPressed,
+            leftPressed,
             rightPressed,
             pausePressed;
 
@@ -15,10 +16,35 @@ public class KeyHandler implements KeyListener {
         // Not implemented
     }
 
-    // Method thad manage what key is being pressed
+    // Method that manage what key is being pressed
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int code = e.getKeyCode();
+
+        //Checks what key is being pressed
+
+        if (code == KeyEvent.VK_W) {
+            upPressed = true;
+        }
+        if (code == KeyEvent.VK_A) {
+            leftPressed = true;
+        }
+        if (code == KeyEvent.VK_S) {
+            downPressed = true;
+        }
+        if (code == KeyEvent.VK_D) {
+            rightPressed = true;
+        }
+
+        //Pause if spacebar pressed
+        if(code == KeyEvent.VK_SPACE) {
+            if (pausePressed) {
+                pausePressed = false;
+            } else {
+                pausePressed = true;
+            }
+        }
 
     }
 
