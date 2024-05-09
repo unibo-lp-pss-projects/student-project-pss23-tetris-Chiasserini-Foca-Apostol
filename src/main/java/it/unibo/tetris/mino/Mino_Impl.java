@@ -24,22 +24,46 @@ public class Mino_Impl implements Mino {
             rightCollision,
             bottomCollision;
     public boolean active = true, deactivating;
-    
 
-
+    // Creates a new Mino_Impl with the given Color.
     @Override
     public void create(Color c) {
-        // TO DO
+        b[0] = new Block(c);
+        b[1] = new Block(c);
+        b[2] = new Block(c);
+        b[3] = new Block(c);
+        tempB[0] = new Block(c);
+        tempB[1] = new Block(c);
+        tempB[2] = new Block(c);
+        tempB[3] = new Block(c);
     }
-
+    
     @Override
     public void setXY(int x, int y) {
-        // TO DO
+        
     }
 
     @Override
     public void updateXY(int direction) {
-        // TO DO
+        checkRotationCollision();
+
+        if (leftCollision == false &&
+                rightCollision == false &&
+                bottomCollision == false) {
+            /**
+             * We use a temp variable to handle the collision.
+             */
+            this.direction = direction;
+            b[0].x = tempB[0].x;
+            b[0].y = tempB[0].y;
+            b[1].x = tempB[1].x;
+            b[1].y = tempB[1].y;
+            b[2].x = tempB[2].x;
+            b[2].y = tempB[2].y;
+            b[3].x = tempB[3].x;
+            b[3].y = tempB[3].y;
+        }
+
     }
 
     @Override
@@ -72,3 +96,4 @@ public class Mino_Impl implements Mino {
         // TO DO
     }
 }
+
