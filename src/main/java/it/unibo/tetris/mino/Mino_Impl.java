@@ -237,7 +237,23 @@ public class Mino_Impl implements Mino {
             KeyHandler.rightPressed = false;
         }
 
+        // Mino hit the bottom bound
+        if (bottomCollision) {
+            if (deactivating == false) {
+                GamePanel.soundEffect.play(4, false);
+            }
+            deactivating = true;
+        } else {
+            autoDropCounter++; 
 
+            if (autoDropCounter == PlayManager.dropInterval) {
+                b[0].y += Block.SIZE;
+                b[1].y += Block.SIZE;
+                b[2].y += Block.SIZE;
+                b[3].y += Block.SIZE;
+                autoDropCounter = 0;
+            }
+        }
 
     }
 
