@@ -257,6 +257,23 @@ public class Mino_Impl implements Mino {
 
     }
 
+    // Deactivating the Mino
+    public void deactivating() {
+
+        deactivateCounter++;
+
+        // Wait 45 frame till the deactivation of the Mino
+        if (deactivateCounter == 45) {
+
+            deactivateCounter = 0;
+            checkMovementCollision(); 
+
+            if (bottomCollision) {
+                active = false;
+            }
+        }
+    }
+
 
 
     @Override
