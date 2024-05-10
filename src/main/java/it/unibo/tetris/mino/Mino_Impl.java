@@ -157,21 +157,27 @@ public class Mino_Impl implements Mino {
             int targetX = PlayManager.staticBlocks.get(i).x;
             int targetY = PlayManager.staticBlocks.get(i).y;
 
-            // Check Bottom collision
+            /*
+             * Check bottom bound collision
+             */
             for (int j = 0; j < b.length; j++) {
                 if (b[j].y + Block.SIZE == targetY && b[j].x == targetX) {
                     bottomCollision = true;
                 }
             }
 
-            // Check left collision
+            /*
+             * Check left wall collision
+             */
             for (int j = 0; j < b.length; j++) {
                 if (b[j].x - Block.SIZE == targetX && b[j].y == targetY) {
                     leftCollision = true;
                 }
             }
 
-            // CHeck right collision
+            /*
+             * Check right wall collision
+             */
             for (int j = 0; j < b.length; j++) {
                 if (b[j].x + Block.SIZE == targetX && b[j].y == targetY) {
                     rightCollision = true;
@@ -187,10 +193,14 @@ public class Mino_Impl implements Mino {
             deactivating();
         }
 
-        // Rotating Mino
+        /*
+         * Rotate the Mino.
+         */
         if (KeyHandler.upPressed) {
 
-            // Rotate Mino with "W"
+            /*
+             * Rotate the Mino when thw "W" Key where pressed.
+             */
             getNextDirection(direction);
 
             KeyHandler.upPressed = false;
@@ -199,9 +209,15 @@ public class Mino_Impl implements Mino {
 
         checkMovementCollision();
 
-        // Bring down the Mino
+        /*
+         * Bring down the Mino.
+         */
         if (KeyHandler.downPressed) {
-            //If doesn't hit the bottom bound the Mino can go down
+
+            /*
+             * If the Mino isn't hitting the bottom bound 
+             * can go down.
+             */
             if (bottomCollision == false) {
                 b[0].y += Block.SIZE;
                 b[1].y += Block.SIZE;
@@ -213,7 +229,9 @@ public class Mino_Impl implements Mino {
             KeyHandler.downPressed = false;
         }
 
-        // Move left the Mino
+        /*
+         * Move left the Mino.
+         */
         if (KeyHandler.leftPressed) {
 
             if (leftCollision == false) {
@@ -225,7 +243,9 @@ public class Mino_Impl implements Mino {
             KeyHandler.leftPressed = false;
         }
 
-        // Move right the Mino
+        /*
+         * Move right the Mino.
+         */
         if (KeyHandler.rightPressed) {
 
             if (rightCollision == false) {
@@ -237,7 +257,9 @@ public class Mino_Impl implements Mino {
             KeyHandler.rightPressed = false;
         }
 
-        // Mino hit the bottom bound
+        /*
+         * Mino hit the bottom bound.
+         */
         if (bottomCollision) {
             if (deactivating == false) {
                 GamePanel.soundEffect.play(4, false);
@@ -257,12 +279,16 @@ public class Mino_Impl implements Mino {
 
     }
 
-    // Deactivating the Mino
+    /**
+     * Deactivate the {@link Mino}.
+     */
     public void deactivating() {
 
         deactivateCounter++;
 
-        // Wait 45 frame till the deactivation of the Mino
+        /*
+         * Wait 45 frames before deactivate the Mino.
+         */
         if (deactivateCounter == 45) {
 
             deactivateCounter = 0;
@@ -318,17 +344,23 @@ public class Mino_Impl implements Mino {
     }
 
 
-
+    /**
+     * Getter of leftCollision value.
+     */
     public boolean isLeftCollision() {
         return leftCollision;
     }
 
-    
+    /**
+     * Getter of rightCollision value.
+     */
     public boolean isRightCollision() {
         return rightCollision;
     }
 
-    
+    /**
+     * Getter of bottomCollision value.
+     */
     public boolean isBottomCollision() {
         return bottomCollision;
     }
