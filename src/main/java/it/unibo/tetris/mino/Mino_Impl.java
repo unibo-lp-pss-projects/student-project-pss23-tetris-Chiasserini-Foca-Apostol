@@ -150,7 +150,32 @@ public class Mino_Impl implements Mino {
 
     @Override
     public void checkStaticBlockCollision() {
-        // TO DO
+        for (int i = 0; i < PlayManager.staticBlocks.size(); i++) {
+
+            int targetX = PlayManager.staticBlocks.get(i).x;
+            int targetY = PlayManager.staticBlocks.get(i).y;
+
+            // Check Bottom collision
+            for (int j = 0; j < b.length; j++) {
+                if (b[j].y + Block.SIZE == targetY && b[j].x == targetX) {
+                    bottomCollision = true;
+                }
+            }
+
+            // Check left collision
+            for (int j = 0; j < b.length; j++) {
+                if (b[j].x - Block.SIZE == targetX && b[j].y == targetY) {
+                    leftCollision = true;
+                }
+            }
+
+            // CHeck right collision
+            for (int j = 0; j < b.length; j++) {
+                if (b[j].x + Block.SIZE == targetX && b[j].y == targetY) {
+                    rightCollision = true;
+                }
+            }
+        }
     }
 
     @Override
