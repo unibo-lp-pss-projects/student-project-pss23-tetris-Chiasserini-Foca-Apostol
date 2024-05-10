@@ -296,5 +296,35 @@ public class Mino_Impl implements Mino {
                 Block.SIZE - (Block.MARGIN * 2), 8, 8);
     }
 
+
+    public void draw(Graphics2D g2, int offset) {
+        g2.setColor(b[0].c);
+        g2.fillRoundRect(b[0].x + offset + Block.MARGIN,
+                b[0].y + PlayManager.TITLE_HEIGHT + Block.MARGIN,
+                Block.SIZE - (Block.MARGIN * 2),
+                Block.SIZE - (Block.MARGIN * 2), 8, 8);
+        g2.fillRoundRect(b[1].x + offset + Block.MARGIN,
+                b[1].y + PlayManager.TITLE_HEIGHT + Block.MARGIN,
+                Block.SIZE - (Block.MARGIN * 2),
+                Block.SIZE - (Block.MARGIN * 2), 8, 8);
+        g2.fillRoundRect(b[2].x + offset + Block.MARGIN,
+                b[2].y + PlayManager.TITLE_HEIGHT + Block.MARGIN,
+                Block.SIZE - (Block.MARGIN * 2),
+                Block.SIZE - (Block.MARGIN * 2), 8, 8);
+        g2.fillRoundRect(b[3].x + offset + Block.MARGIN,
+                b[3].y + PlayManager.TITLE_HEIGHT + Block.MARGIN,
+                Block.SIZE - (Block.MARGIN * 2),
+                Block.SIZE - (Block.MARGIN * 2), 8, 8);
+    }
+
+
+
+
+
+
+
+
+
+
 }
 
