@@ -319,11 +319,23 @@ public class Mino_Impl implements Mino {
 
 
 
+    public boolean isLeftCollision() {
+        return leftCollision;
+    }
 
+    
+    public boolean isRightCollision() {
+        return rightCollision;
+    }
 
+    
+    public boolean isBottomCollision() {
+        return bottomCollision;
+    }
 
-
-
+    public boolean isDeactivating() {
+        return deactivating;
+    }
 
 
 }
