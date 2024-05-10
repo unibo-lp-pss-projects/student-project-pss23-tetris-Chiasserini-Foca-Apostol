@@ -196,10 +196,53 @@ public class Mino_Impl implements Mino {
             KeyHandler.upPressed = false;
             GamePanel.soundEffect.play(3, false);
         }
+
+        checkMovementCollision();
+
+        // Bring down the Mino
+        if (KeyHandler.downPressed) {
+            //If doesn't hit the bottom bound the Mino can go down
+            if (bottomCollision == false) {
+                b[0].y += Block.SIZE;
+                b[1].y += Block.SIZE;
+                b[2].y += Block.SIZE;
+                b[3].y += Block.SIZE;
+
+                autoDropCounter = 0;
+            }
+            KeyHandler.downPressed = false;
+        }
+
+        // Move left the Mino
+        if (KeyHandler.leftPressed) {
+
+            if (leftCollision == false) {
+                b[0].x -= Block.SIZE;
+                b[1].x -= Block.SIZE;
+                b[2].x -= Block.SIZE;
+                b[3].x -= Block.SIZE;
+            }
+            KeyHandler.leftPressed = false;
+        }
+
+        // Move right the Mino
+        if (KeyHandler.rightPressed) {
+
+            if (rightCollision == false) {
+                b[0].x += Block.SIZE;
+                b[1].x += Block.SIZE;
+                b[2].x += Block.SIZE;
+                b[3].x += Block.SIZE;
+            }
+            KeyHandler.rightPressed = false;
+        }
+
+
+
     }
 
 
-    
+
     @Override
     public void draw(Graphics2D g2) {
         // TO DO
