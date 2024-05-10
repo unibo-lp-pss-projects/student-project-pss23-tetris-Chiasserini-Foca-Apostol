@@ -3,6 +3,8 @@ package main.java.it.unibo.tetris.mino;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import it.unibo.tetris.GamePanel;
+import it.unibo.tetris.KeyHandler;
 import it.unibo.tetris.PlayManager;
 import main.java.it.unibo.tetris.mino.api.Block;
 import main.java.it.unibo.tetris.mino.api.Mino;
@@ -180,12 +182,28 @@ public class Mino_Impl implements Mino {
 
     @Override
     public void update() {
-        // TO DO
+
+        if (deactivating) {
+            deactivating();
+        }
+
+        // Rotating Mino
+        if (KeyHandler.upPressed) {
+
+            // Rotate Mino with "W"
+            getNextDirection(direction);
+
+            KeyHandler.upPressed = false;
+            GamePanel.soundEffect.play(3, false);
+        }
     }
 
+
+    
     @Override
     public void draw(Graphics2D g2) {
         // TO DO
     }
+
 }
 
