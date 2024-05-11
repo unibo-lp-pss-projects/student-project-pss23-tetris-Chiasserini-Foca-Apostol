@@ -2,8 +2,8 @@ package main.java.it.unibo.tetris.mino;
 
 import java.awt.Color;
 
-import it.unibo.tetris.mino.api.Block;
-import it.unibo.tetris.mino.api.Mino;
+import main.java.it.unibo.tetris.mino.api.Block;
+import main.java.it.unibo.tetris.mino.api.Mino;
 import main.java.it.unibo.tetris.mino.api.*;
 
 
@@ -100,3 +100,7 @@ public class Mino_Bar extends Mino_Impl {
         updateXY(2);
     }
 }
+
+
+
+
