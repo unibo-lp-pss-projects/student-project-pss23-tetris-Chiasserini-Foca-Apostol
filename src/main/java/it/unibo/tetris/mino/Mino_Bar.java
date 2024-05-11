@@ -3,18 +3,29 @@ package main.java.it.unibo.tetris.mino;
 import java.awt.Color;
 
 import it.unibo.tetris.mino.api.Block;
+import it.unibo.tetris.mino.api.Mino;
 import main.java.it.unibo.tetris.mino.api.*;
 
 
-// Class for "Bar"
+/**
+ * Class for a "Bar" {@link Mino}
+ */
 public class Mino_Bar extends Mino_Impl {
 
-    // Constructor for Mino_Bar
+    /**
+     * Constructor for {@link Mino_Bar} class which creates a new Mino_Z2 object with
+     * a cyan {@link Color}.
+     */
     public Mino_Bar() {
         create(Color.cyan);
     }
     
-    // Coordinates of the "Bar"
+    /**
+     * Sets the x and y coordinates of the {@link Mino_Bar}.
+     *
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     */
     public void setXY(int x, int y) {
         //
         // ° ° ° °
@@ -30,7 +41,12 @@ public class Mino_Bar extends Mino_Impl {
 
     }
 
-    // Determines the next direction
+    /**
+     * Determines the next direction for the {@link Mino_Bar} object to move based on
+     * the given direction
+     *
+     * @param direction The current direction.
+     */
     public void getNextDirection(int direction) {
 
         switch (direction) {
@@ -43,7 +59,10 @@ public class Mino_Bar extends Mino_Impl {
         }
     }
 
-    // First direction
+    /**
+     * Utility function that moves the blocks of the {@link Mino_Bar} object 
+     * in the first direction
+     */
     private void getDirection1() {
         //
         // ° ° ° °
@@ -60,7 +79,10 @@ public class Mino_Bar extends Mino_Impl {
         updateXY(1);
     }
 
-    // Second direction
+    /**
+     * Utility function that moves the blocks of the {@link Mino_Bar} object 
+     * in the second direction
+     */
     private void getDirection2() {
         // °
         // °
