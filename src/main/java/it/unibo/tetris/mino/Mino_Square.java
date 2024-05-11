@@ -6,14 +6,25 @@ import main.java.it.unibo.tetris.mino.api.Block;
 import main.java.it.unibo.tetris.mino.api.Mino;
 import main.java.it.unibo.tetris.mino.api.*;
 
+/**
+ * Class for a "Square" {@link Mino}
+ */
 public class Mino_Square extends Mino_Impl {
 
-    // Constructor for the "Square"
+    /**
+     * Constructor for {@link Mino_Square} class which creates a new Mino_Square object with
+     * a yellow {@link Color}.
+     */
     public Mino_Square() {
         create(Color.yellow);
     }
 
-    // Set coordinates of "Square"
+    /**
+     * Sets the x and y coordinates of the {@link Mino_Square}.
+     *
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     */
     public void setXY(int x, int y) {
         //
         // ° °
