@@ -71,6 +71,20 @@ public class PlayManager {
             // Set the nextMino position
             NEXTMINO_X = right_x + 175;
             NEXTMINO_Y = top_y + 500;
+
+            // Pick the nextMino and associate it the "Next Mino" position.
+            nextMino = pickMino();
+            nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
+
+            // Pick the first Mino and associate it the starting position.
+            currentMino = pickMino();
+            currentMino.setXY(MINO_START_X, MINO_START_Y);
+        }
+
+        public Mino_Impl pickMino() {
+            Mino_Impl placeholder = new Mino_Impl();
+            return placeholder;
+            //TO DO
         }
     
         public void update() {
