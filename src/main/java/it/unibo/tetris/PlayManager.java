@@ -4,8 +4,13 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.util.Random;
 
+import it.unibo.tetris.mino.Mino_Bar;
 import it.unibo.tetris.mino.Mino_Impl;
+import it.unibo.tetris.mino.Mino_L1;
+import it.unibo.tetris.mino.Mino_L2;
+import it.unibo.tetris.mino.Mino_Square;
 import it.unibo.tetris.mino.api.Block;
 
 /**
@@ -82,9 +87,33 @@ public class PlayManager {
         }
 
         public Mino_Impl pickMino() {
-            Mino_Impl placeholder = new Mino_Impl();
-            return placeholder;
-            //TO DO
+            Mino_Impl mino = null;
+            int i = new Random().nextInt(7);
+
+            switch (i) {
+                case 0:
+                    mino = new Mino_L1();
+                    break;
+                case 1:
+                    mino = new Mino_L2();
+                    break;
+                case 2:
+                    mino = new Mino_Square();
+                    break;
+                case 3:
+                    mino = new Mino_Bar();
+                    break;
+                case 4:
+                    //mino = new Mino_T();  Uncomment when respective classes are ready!!!
+                    break;
+                case 5:
+                    //mino = new Mino_Z1();
+                    break;
+                case 6:
+                    //mino = new Mino_Z2();
+                    break;
+            }
+            return mino;
         }
     
         public void update() {
