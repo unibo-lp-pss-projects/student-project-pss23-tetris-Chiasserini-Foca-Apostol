@@ -24,4 +24,20 @@ public class Sound {
         sounds[3] = getClass().getResource("/rotation.wav");
         sounds[4] = getClass().getResource("/touch floor.wav");
     }
+
+    //Method that plays a specified sound
+    public void play(int soundIndex, boolean music){
+        
+        try {
+            AudioInputStream ais = AudioSystem.getAudioInputStream(sounds[soundIndex]);
+            Clip clip = AudioSystem.getClip();
+
+            if (music) {
+                musicClip = clip;
+            }
+        } catch (Exception e){
+            
+        }
+    }
+
 }
