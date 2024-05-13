@@ -1,9 +1,12 @@
-package main.java.it.unibo.tetris;
+package it.unibo.tetris;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+
+import it.unibo.tetris.mino.Mino_Impl;
+import it.unibo.tetris.mino.api.Block;
 
 /**
  * Class {@link PlayManager}.
@@ -40,6 +43,17 @@ public class PlayManager {
         int level = 1;
         int lines;
         int score;
+
+        //Current Mino
+        Mino_Impl currentMino;
+        public static int MINO_START_X; 
+        public static int MINO_START_Y;
+
+        //Next Mino
+        Mino_Impl nextMino;
+        final int NEXTMINO_X;
+        final int NEXTMINO_Y;
+
     
         /**
          * Set Playarea bounds
@@ -49,6 +63,14 @@ public class PlayManager {
             right_x = left_x + WIDTH;
             top_y = 50;
             bottom_y = top_y + HEIGHT;
+
+            // Set the starting Mino position
+            MINO_START_X = left_x + (WIDTH / 2) - Block.SIZE;
+            MINO_START_Y = top_y + Block.SIZE;
+
+            // Set the nextMino position
+            NEXTMINO_X = right_x + 175;
+            NEXTMINO_Y = top_y + 500;
         }
     
         public void update() {
