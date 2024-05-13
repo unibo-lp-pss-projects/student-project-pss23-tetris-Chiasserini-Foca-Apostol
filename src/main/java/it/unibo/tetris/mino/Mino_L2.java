@@ -2,17 +2,28 @@ package main.java.it.unibo.tetris.mino;
 
 import java.awt.Color;
 
+import main.java.it.unibo.tetris.mino.api.Mino;
 import main.java.it.unibo.tetris.mino.api.Block;
 
-
+/**
+ * Class for a 2° version of "L" {@link Mino}
+ */
 public class Mino_L2 extends Mino_Impl{
 
-    // Constructor that creates Mino_L2
+    /**
+     * Constructor for {@link Mino_L2} class which creates a new Mino_L2 object with
+     * a blue {@link Color}.
+     */
     public Mino_L2() {
         create(Color.blue);
     }
 
-    // Set coordinates of the Mino_L2
+    /**
+     * Sets the x and y coordinates of the {@link Mino_L2}.
+     *
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     */
     public void setXY(int x, int y) {
         //   °
         //   °
@@ -27,7 +38,12 @@ public class Mino_L2 extends Mino_Impl{
         b[3].y = b[0].y + Block.SIZE;
     }
 
-    // Determines next direction
+    /**
+     * Determines the next direction for the {@link Mino_L2} object to move based on
+     * the given direction
+     *
+     * @param direction The current direction.
+     */
     public void getNextDirection(int direction) {
 
         switch (direction) {
@@ -46,7 +62,10 @@ public class Mino_L2 extends Mino_Impl{
         }
     }
 
-    // First one
+    /**
+     * Utility function that moves the blocks of the {@link Mino_L2} object 
+     * in the first direction
+     */
     private void getDirection1() {
         //   °
         //   °
@@ -63,7 +82,10 @@ public class Mino_L2 extends Mino_Impl{
         updateXY(1);
     }
 
-    // Second one
+    /**
+     * Utility function that moves the blocks of the {@link Mino_L2} object 
+     * in the second direction
+     */
     private void getDirection2() {
         //
         // °
@@ -80,7 +102,10 @@ public class Mino_L2 extends Mino_Impl{
         updateXY(2);
     }
 
-    // Third direction
+    /**
+     * Utility function that moves the blocks of the {@link Mino_L2} object 
+     * in the third direction
+     */
     private void getDirection3() {
         // ° °
         // °
@@ -97,7 +122,10 @@ public class Mino_L2 extends Mino_Impl{
         updateXY(3);
     }
 
-    // Last direction
+    /**
+     * Utility function that moves the blocks of the {@link Mino_L2} object 
+     * in the fourth direction
+     */
     private void getDirection4() {
         //
         // ° ° °
