@@ -44,6 +44,8 @@ public class Sound {
                     }
                 }
             });
+            ais.close();
+            clip.start();
         } catch (Exception e){
 
         }
