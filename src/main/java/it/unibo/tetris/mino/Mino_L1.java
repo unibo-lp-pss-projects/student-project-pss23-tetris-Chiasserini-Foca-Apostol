@@ -3,13 +3,14 @@ package main.java.it.unibo.tetris.mino;
 import java.awt.Color;
 
 import main.java.it.unibo.tetris.mino.api.Mino;
+import main.java.it.unibo.tetris.mino.Mino_Impl;
 import main.java.it.unibo.tetris.mino.api.Block;
 
 
 /**
  * Class for a 1° version of "L" {@link Mino}
  */
-public class Mino_L1 {
+public class Mino_L1 extends Mino_Impl{
 
     /**
      * Constructor for {@link Mino_L1} class which creates a new Mino_L2 object with
