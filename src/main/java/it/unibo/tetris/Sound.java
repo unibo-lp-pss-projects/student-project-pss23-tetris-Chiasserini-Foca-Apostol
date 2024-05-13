@@ -1,9 +1,7 @@
 package main.java.it.unibo.tetris;
 
 import java.net.URL;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
 
 // This class manages the sounds of the game
 
@@ -35,8 +33,19 @@ public class Sound {
             if (music) {
                 musicClip = clip;
             }
+
+            //Behaviour of the class when the sound finishes playing
+            clip.open(ais);
+            clip.addLineListener(new LineListener() {
+                @Override
+                public void update(LineEvent event){
+                    if (event.getType() == LineEvent.Type.STOP) {
+                        clip.close();
+                    }
+                }
+            });
         } catch (Exception e){
-            
+
         }
     }
 
