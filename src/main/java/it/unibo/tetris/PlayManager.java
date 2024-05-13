@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.Random;
 
 import it.unibo.tetris.mino.Mino_Bar;
@@ -59,6 +60,14 @@ public class PlayManager {
         final int NEXTMINO_X;
         final int NEXTMINO_Y;
 
+        //Storage for static blocks at the bottom of the window.
+        public static ArrayList<Block> staticBlocks = new ArrayList<>();
+
+        //Frames after which the block autodrops 
+        public static int dropInterval = 60; 
+
+        //Gameover flag
+        boolean gameOver;
     
         /**
          * Set Playarea bounds
@@ -117,9 +126,41 @@ public class PlayManager {
         }
     
         public void update() {
-            //TO DO
+            // Check active
+            if (currentMino.active == false) {
+                // Put in the staticBlocks
+                staticBlocks.add(currentMino.b[0]);
+                staticBlocks.add(currentMino.b[1]);
+                staticBlocks.add(currentMino.b[2]);
+                staticBlocks.add(currentMino.b[3]);
+
+                /**
+                 * Check gameover
+                 */
+                if (currentMino.b[0].x == MINO_START_X && currentMino.b[0].y == MINO_START_Y) {
+                    //gameover
+                    gameOver = true;
+                }
+
+                currentMino.deactivating = false;
+
+                //nextmino replace current mino
+                currentMino = nextMino;
+                currentMino.setXY(MINO_START_X, MINO_START_Y);
+                nextMino = pickMino();
+                nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
+
+                // check if its possible to delete blocks
+                checkDelete();
+            } else {
+                currentMino.update();
+            }
         }
     
+        private void checkDelete() {
+            // TO DO
+        }
+
         /**
          * Method that draw graphic elements.
          * 
