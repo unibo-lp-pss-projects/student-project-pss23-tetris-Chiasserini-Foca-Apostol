@@ -3,7 +3,6 @@ package main.java.it.unibo.tetris.mino;
 import java.awt.Color;
 
 import main.java.it.unibo.tetris.mino.api.Mino;
-import main.java.it.unibo.tetris.mino.Mino_Impl;
 import main.java.it.unibo.tetris.mino.api.Block;
 
 

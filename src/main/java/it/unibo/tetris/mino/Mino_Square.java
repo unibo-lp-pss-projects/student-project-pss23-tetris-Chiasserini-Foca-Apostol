@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import main.java.it.unibo.tetris.mino.api.Block;
 import main.java.it.unibo.tetris.mino.api.Mino;
-import main.java.it.unibo.tetris.mino.api.*;
+
 
 /**
  * Class for a "Square" {@link Mino}
