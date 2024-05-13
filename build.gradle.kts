@@ -23,3 +23,11 @@ tasks.test {
 application { // Config for specify the main class 
     mainClass.set("main.java.it.unibo.tetris.Main")
 }
+
+sourceSets {
+    main {
+        resources {
+            srcDirs("src/res")
+        }
+    }
+}
