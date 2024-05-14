@@ -81,5 +81,39 @@ public class Mino_T extends Mino_Impl{
 
         updateXY(2);
     }
+
+    // Third direction
+    private void getDirection3() {
+        //   °
+        // ° °
+        //   °
+        tempB[0].x = b[0].x;
+        tempB[0].y = b[0].y;
+        tempB[1].x = b[0].x;
+        tempB[1].y = b[0].y + Block.SIZE;
+        tempB[2].x = b[0].x + Block.SIZE;
+        tempB[2].y = b[0].y;
+        tempB[3].x = b[0].x - Block.SIZE;
+        tempB[3].y = b[0].y;
+
+        updateXY(3);
+    }
+
+    // Last direction
+    private void getDirection4() {
+        //
+        //   °
+        // ° ° °
+        tempB[0].x = b[0].x;
+        tempB[0].y = b[0].y;
+        tempB[1].x = b[0].x - Block.SIZE;
+        tempB[1].y = b[0].y;
+        tempB[2].x = b[0].x;
+        tempB[2].y = b[0].y + Block.SIZE;
+        tempB[3].x = b[0].x;
+        tempB[3].y = b[0].y - Block.SIZE;
+
+        updateXY(4);
+    }
     
 }
