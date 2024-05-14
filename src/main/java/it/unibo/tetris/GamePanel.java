@@ -28,6 +28,11 @@ public class GamePanel extends JPanel implements Runnable{
         Thread gameThread;
 
         PlayManager playManager;
+
+        // background soundtrack.
+        public static Sound music = new Sound();
+        // sound effects.
+        public static Sound soundEffect = new Sound();
     
         /**
          * {@link GamePanel} initial settings.
@@ -46,6 +51,8 @@ public class GamePanel extends JPanel implements Runnable{
         public void launchGame() {
             gameThread = new Thread(this);
             gameThread.start();
+
+            music.play(0, true);
         }
     
         /**
