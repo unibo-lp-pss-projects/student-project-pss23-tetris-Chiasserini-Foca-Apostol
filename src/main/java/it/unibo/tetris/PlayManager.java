@@ -13,6 +13,7 @@ import it.unibo.tetris.mino.Mino_L1;
 import it.unibo.tetris.mino.Mino_L2;
 import it.unibo.tetris.mino.Mino_Square;
 import it.unibo.tetris.mino.api.Block;
+import it.unibo.tetris.mino.api.Mino;
 import it.unibo.tetris.mino.Mino_T;
 import it.unibo.tetris.mino.Mino_Z1;
 
@@ -52,27 +53,38 @@ public class PlayManager {
         int lines;
         int score;
 
-        //Current Mino
+        /**
+         * Current {@link Mino}
+         */
         Mino_Impl currentMino;
         public static int MINO_START_X; 
         public static int MINO_START_Y;
 
-        //Next Mino
+        /**
+         * Next {@link Mino} that will come into play.
+         */
         Mino_Impl nextMino;
         final int NEXTMINO_X;
         final int NEXTMINO_Y;
 
-        //Storage for static blocks at the bottom of the window.
+        /**
+         * {@link ArrayList}<{@link Block}> for storage static Blocks.
+         * One {@link Block} is static when is touching bottom bound.
+         */
         public static ArrayList<Block> staticBlocks = new ArrayList<>();
 
-        //Frames after which the block autodrops 
+        /**
+         * Number of frames from one autodrop of the {@link Mino} to the next.
+         */ 
         public static int dropInterval = 60; 
 
-        //Gameover flag
+        /**
+         * Gameover flag.
+         */
         boolean gameOver;
     
         /**
-         * Set Playarea bounds
+         * Set Playarea bounds.
          */
         public PlayManager() {
             left_x = 50;
@@ -80,23 +92,36 @@ public class PlayManager {
             top_y = 50;
             bottom_y = top_y + HEIGHT;
 
-            // Set the starting Mino position
+            /*
+             * Set the starting Mino position.
+             */
             MINO_START_X = left_x + (WIDTH / 2) - Block.SIZE;
             MINO_START_Y = top_y + Block.SIZE;
 
-            // Set the nextMino position
+            /*
+             * Set the nextMino position.
+             */
             NEXTMINO_X = right_x + 175;
             NEXTMINO_Y = top_y + 500;
 
-            // Pick the nextMino and associate it the "Next Mino" position.
+            /*
+             * Pick the nextMino and associate it the "Next Mino" position.
+             */ 
             nextMino = pickMino();
             nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
 
-            // Pick the first Mino and associate it the starting position.
+            /*
+             * Pick the first Mino and associate it the starting position.
+             */ 
             currentMino = pickMino();
             currentMino.setXY(MINO_START_X, MINO_START_Y);
         }
 
+        /**
+         * Method that select a {@link Random} {@link Mino} and returns it
+         * 
+         * @return mino - a random {@link Mino}.
+         */
         public Mino_Impl pickMino() {
             Mino_Impl mino = null;
             int i = new Random().nextInt(7);
@@ -127,46 +152,66 @@ public class PlayManager {
             return mino;
         }
     
+        /**
+         * Method that put the currentMino in staticBlocks.
+         * If the game is not over
+         * put the next {@link Mino} in the starting position:
+         */
         public void update() {
-            // Check active
+            /*
+             * Check if the currentMino is active
+             */
             if (currentMino.active == false) {
-                // Put in the staticBlocks
+                /*
+                 * If the mino is not active put in the staticBlocks
+                 */
                 staticBlocks.add(currentMino.b[0]);
                 staticBlocks.add(currentMino.b[1]);
                 staticBlocks.add(currentMino.b[2]);
                 staticBlocks.add(currentMino.b[3]);
 
-                /**
+                /*
                  * Check gameover
                  */
                 if (currentMino.b[0].x == MINO_START_X && currentMino.b[0].y == MINO_START_Y) {
-                    //gameover
+                    /*
+                     * If the currentMino x and y are the same of se statring position
+                     * it means that the game is over.
+                     */
                     gameOver = true;
                 }
 
                 currentMino.deactivating = false;
 
-                //nextmino replace current mino
+                /*
+                 * Raplace the currentMino with the neaxtMino.
+                 */
                 currentMino = nextMino;
                 currentMino.setXY(MINO_START_X, MINO_START_Y);
                 nextMino = pickMino();
                 nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
 
-                // check if its possible to delete blocks
+                /*
+                 * Check if some lines can be deleted. 
+                 */
                 checkDelete();
             } else {
                 currentMino.update();
             }
         }
     
-        // Check if some lines can be deleted.
+        /**
+         * Check if some lines can be deleted and update the score.
+         */
         public void checkDelete() {
             int x = left_x;
             int y = top_y;
             int blockCount = 0;
             int lineCount = 0;
         
-            // Count the number of staticBlocks. 
+            /*
+             * Count the number of staticBlocks. 
+             */ 
             while (x < right_x && y < bottom_y) {
                 for (int i = 0; i < staticBlocks.size(); i++) {
                     if (staticBlocks.get(i).x == x && staticBlocks.get(i).y == y) {
@@ -177,10 +222,14 @@ public class PlayManager {
                 x += Block.SIZE;
         
                 if (x == right_x) {
-                    // line is full and must be deleted.
+                    /*
+                     * If blockCount is equal to 12 means a line is full and must be deleted.
+                     */
                     if (blockCount == 12) {
         
-                        // Remove all blocks at this y-coordinate
+                        /*
+                         * Remove all blocks at this y-coordinate
+                         */
                         for (int i = staticBlocks.size() - 1; i > -1; i--) {
                             if (staticBlocks.get(i).y == y) {
                                 staticBlocks.remove(i);
@@ -190,7 +239,9 @@ public class PlayManager {
                         lineCount++;
                         lines++;
         
-                        // Increase the level and the drop speed of the blocks. 
+                        /*
+                         * Increase the level and the drop speed of the blocks. 
+                         */
                         if (lines % 10 == 0 && dropInterval > 1) {
                             level++;
                             if (dropInterval > 10) {
@@ -200,7 +251,9 @@ public class PlayManager {
                             }
                         }
         
-                        // Shift down the remaining Block after a line deleted.
+                        /*
+                         * Shift down the remaining Block after a line deleted.
+                         */
                         for (int i = 0; i < staticBlocks.size(); i++) {
                             if (staticBlocks.get(i).y < y) {
                                 staticBlocks.get(i).y += Block.SIZE;
@@ -214,7 +267,9 @@ public class PlayManager {
                 }
             }
 
-            // Increase the score.
+            /*
+             * Increase the score.
+             */
             if (lineCount > 0) {
                 int singleLineScore = 10 * level;
                 score += singleLineScore * lineCount;
