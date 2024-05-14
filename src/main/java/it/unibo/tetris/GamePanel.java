@@ -42,6 +42,10 @@ public class GamePanel extends JPanel implements Runnable{
             this.setBackground(Color.black);
             this.setLayout(null);
 
+            //add KeyListener
+            this.addKeyListener(new KeyHandler());
+            this.setFocusable(true);
+
             playManager = new PlayManager();
         }
     
@@ -76,6 +80,7 @@ public class GamePanel extends JPanel implements Runnable{
                 lastTime = currentTime;
     
                 if (delta >= 1) {
+                    update();
                     repaint();
                     delta--;
                 }
