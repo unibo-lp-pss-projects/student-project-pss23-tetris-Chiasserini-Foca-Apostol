@@ -27,11 +27,18 @@ public class GamePanel extends JPanel implements Runnable{
         final int FPS = 60;
         Thread gameThread;
 
+        /**
+         * Utility variable for call the PlayManager methods.
+         */
         PlayManager playManager;
 
-        // background soundtrack.
+        /**
+         * {@link Sound} variable for play background soundtrack.
+         */
         public static Sound music = new Sound();
-        // sound effects.
+        /**
+         * {@link Sound} variable for play sound effects.
+         */
         public static Sound soundEffect = new Sound();
     
         /**
@@ -42,7 +49,9 @@ public class GamePanel extends JPanel implements Runnable{
             this.setBackground(Color.black);
             this.setLayout(null);
 
-            //add KeyListener
+            /*
+             * Add KeyListener.
+             */
             this.addKeyListener(new KeyHandler());
             this.setFocusable(true);
 
