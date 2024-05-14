@@ -13,6 +13,8 @@ import it.unibo.tetris.mino.Mino_L1;
 import it.unibo.tetris.mino.Mino_L2;
 import it.unibo.tetris.mino.Mino_Square;
 import it.unibo.tetris.mino.api.Block;
+import it.unibo.tetris.mino.Mino_T;
+import it.unibo.tetris.mino.Mino_Z1;
 
 /**
  * Class {@link PlayManager}.
@@ -113,13 +115,13 @@ public class PlayManager {
                     mino = new Mino_Bar();
                     break;
                 case 4:
-                    //mino = new Mino_T();  Uncomment when respective classes are ready!!!
+                    mino = new Mino_T();  
                     break;
                 case 5:
-                    //mino = new Mino_Z1();
+                    mino = new Mino_Z1();
                     break;
                 case 6:
-                    //mino = new Mino_Z2();
+                    //mino = new Mino_Z2();     Uncomment when respective classes are ready!!!
                     break;
             }
             return mino;
@@ -157,8 +159,66 @@ public class PlayManager {
             }
         }
     
-        private void checkDelete() {
-            // TO DO
+        // Check if some lines can be deleted.
+        public void checkDelete() {
+            int x = left_x;
+            int y = top_y;
+            int blockCount = 0;
+            int lineCount = 0;
+        
+            // Count the number of staticBlocks. 
+            while (x < right_x && y < bottom_y) {
+                for (int i = 0; i < staticBlocks.size(); i++) {
+                    if (staticBlocks.get(i).x == x && staticBlocks.get(i).y == y) {
+                        blockCount++;
+                    }
+                }
+        
+                x += Block.SIZE;
+        
+                if (x == right_x) {
+                    // line is full and must be deleted.
+                    if (blockCount == 12) {
+        
+                        // Remove all blocks at this y-coordinate
+                        for (int i = staticBlocks.size() - 1; i > -1; i--) {
+                            if (staticBlocks.get(i).y == y) {
+                                staticBlocks.remove(i);
+                            }
+                        }
+        
+                        lineCount++;
+                        lines++;
+        
+                        // Increase the level and the drop speed of the blocks. 
+                        if (lines % 10 == 0 && dropInterval > 1) {
+                            level++;
+                            if (dropInterval > 10) {
+                                dropInterval -= 10;
+                            } else {
+                                dropInterval -= 1;
+                            }
+                        }
+        
+                        // Shift down the remaining Block after a line deleted.
+                        for (int i = 0; i < staticBlocks.size(); i++) {
+                            if (staticBlocks.get(i).y < y) {
+                                staticBlocks.get(i).y += Block.SIZE;
+                            }
+                        }
+                    }
+        
+                    blockCount = 0;
+                    x = left_x;
+                    y += Block.SIZE;
+                }
+            }
+
+            // Increase the score.
+            if (lineCount > 0) {
+                int singleLineScore = 10 * level;
+                score += singleLineScore * lineCount;
+            }
         }
 
         /**
