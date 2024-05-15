@@ -8,11 +8,17 @@ public class Menu extends JPanel{
     private JPanel mainPanel;
     private JFrame frame;
 
+    private Toolkit toolkit = Toolkit.getDefaultToolkit();
+    private Dimension screenSize = toolkit.getScreenSize();
+
+    //Utility costant
+    public final int WIDTH = screenSize.width; 
+    //Utility costant
+    public final Integer HEIGHT = screenSize.height; 
 
     public Menu() {
 
         //Create the JFrame
-
     }
 
     private JFrame createFrame(String title, Dimension screenSize ) {
