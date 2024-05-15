@@ -66,6 +66,8 @@ public class GamePanel extends JPanel implements Runnable{
             gameThread.start();
 
             music.play(0, true);
+            music.loop();
+            music.setVolume(-15.0f);
         }
     
         /**
