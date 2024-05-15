@@ -57,5 +57,10 @@ public class Sound {
         musicClip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
+    //Stop the sound
     
+    public void stop() {
+        musicClip.stop();
+        musicClip.close();
+    }
 }
