@@ -58,9 +58,18 @@ public class Sound {
     }
 
     //Stop the sound
-    
+
     public void stop() {
         musicClip.stop();
         musicClip.close();
     }
+
+    //Set the volume
+
+    public void setVolume(float volume) {
+        if (musicClip != null) {
+            FloatControl control = musicClip.getControl(FloatControl.Type.MASTER_GAIN);
+            control.setValue(volume);
+        }
+    } 
 }
