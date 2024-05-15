@@ -68,7 +68,7 @@ public class Sound {
 
     public void setVolume(float volume) {
         if (musicClip != null) {
-            FloatControl control = musicClip.getControl(FloatControl.Type.MASTER_GAIN);
+            FloatControl control = (FloatControl)musicClip.getControl(FloatControl.Type.MASTER_GAIN);
             control.setValue(volume);
         }
     } 
