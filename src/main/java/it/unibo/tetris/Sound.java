@@ -51,4 +51,11 @@ public class Sound {
         }
     }
 
+    //Method for playing a sound in loop mode
+
+    public void loop() {
+        musicClip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    
 }
