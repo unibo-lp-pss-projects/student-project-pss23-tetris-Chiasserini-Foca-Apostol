@@ -19,6 +19,8 @@ public class Menu extends JPanel{
     public Menu() {
 
         //Create the JFrame
+        this.frame = createFrame("Tetris", screenSize);
+
     }
 
     private JFrame createFrame(String title, Dimension screenSize ) {
