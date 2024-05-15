@@ -179,6 +179,8 @@ public class PlayManager {
                      * it means that the game is over.
                      */
                     gameOver = true;
+                    GamePanel.music.stop();
+                    GamePanel.soundEffect.play(2, false);
                 }
 
                 currentMino.deactivating = false;
@@ -271,6 +273,7 @@ public class PlayManager {
              * Increase the score.
              */
             if (lineCount > 0) {
+                GamePanel.soundEffect.play(1, false);
                 int singleLineScore = 10 * level;
                 score += singleLineScore * lineCount;
             }
