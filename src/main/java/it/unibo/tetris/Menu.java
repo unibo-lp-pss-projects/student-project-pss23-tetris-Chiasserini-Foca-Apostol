@@ -14,4 +14,18 @@ public class Menu extends JPanel{
         //Create the JFrame
 
     }
+
+    private JFrame createFrame(String title, Dimension screenSize ) {
+
+        JFrame window = new JFrame(title);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setSize(screenSize);
+        window.setPreferredSize(screenSize);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+        //Manage the icon
+        return window;
+    }
 }
