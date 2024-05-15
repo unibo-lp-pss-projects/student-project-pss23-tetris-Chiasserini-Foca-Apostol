@@ -23,6 +23,8 @@ public class Menu extends JPanel{
 
         //Create the JPanel
         this.mainPanel = new JPanel();
+        mainPanel.setBackground(Color.black);
+
     }
 
     private JFrame createFrame(String title, Dimension screenSize ) {
