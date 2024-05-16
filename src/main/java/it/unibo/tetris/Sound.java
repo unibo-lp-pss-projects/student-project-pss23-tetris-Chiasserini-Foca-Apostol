@@ -1,4 +1,4 @@
-package main.java.it.unibo.tetris;
+package it.unibo.tetris;
 
 import java.net.URL;
 import javax.sound.sampled.*;

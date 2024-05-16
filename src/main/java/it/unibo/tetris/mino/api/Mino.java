@@ -1,4 +1,4 @@
-package main.java.it.unibo.tetris.mino.api;
+package it.unibo.tetris.mino.api;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

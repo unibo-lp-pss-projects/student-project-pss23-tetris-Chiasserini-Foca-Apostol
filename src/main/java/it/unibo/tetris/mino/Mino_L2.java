@@ -1,9 +1,9 @@
-package main.java.it.unibo.tetris.mino;
+package it.unibo.tetris.mino;
 
 import java.awt.Color;
 
-import main.java.it.unibo.tetris.mino.api.Mino;
-import main.java.it.unibo.tetris.mino.api.Block;
+import it.unibo.tetris.mino.api.Mino;
+import it.unibo.tetris.mino.api.Block;
 
 /**
  * Class for a 2° version of "L" {@link Mino}

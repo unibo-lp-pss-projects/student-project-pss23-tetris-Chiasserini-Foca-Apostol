@@ -1,13 +1,13 @@
-package main.java.it.unibo.tetris.mino;
+package it.unibo.tetris.mino;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import main.java.it.unibo.tetris.GamePanel;
-import main.java.it.unibo.tetris.KeyHandler;
-import main.java.it.unibo.tetris.PlayManager;
-import main.java.it.unibo.tetris.mino.api.Block;
-import main.java.it.unibo.tetris.mino.api.Mino;
+import it.unibo.tetris.GamePanel;
+import it.unibo.tetris.KeyHandler;
+import it.unibo.tetris.PlayManager;
+import it.unibo.tetris.mino.api.Block;
+import it.unibo.tetris.mino.api.Mino;
 
 public class Mino_Impl implements Mino {
     private static final int NUM_OF_BLOCK_OF_A_MINO = 4;

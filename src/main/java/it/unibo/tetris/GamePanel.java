@@ -1,4 +1,4 @@
-package main.java.it.unibo.tetris;
+package it.unibo.tetris;
 
 import java.awt.Dimension;
 import java.awt.Color;
