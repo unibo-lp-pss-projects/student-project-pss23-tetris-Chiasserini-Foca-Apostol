@@ -20,4 +20,25 @@ public class Mino_Impl_Test {
         mino.create(Color.RED);
     }
 
+    @Test
+    public void testRotationCollisionWithCollision() {
+        /**
+         * Move the mino to the left so that it collides with the left boundary
+         */
+        mino.tempB[0].x = PlayManager.left_x - Block.SIZE;
+        mino.tempB[1].x = PlayManager.left_x - Block.SIZE;
+        mino.tempB[2].x = PlayManager.left_x - Block.SIZE;
+        mino.tempB[3].x = PlayManager.left_x - Block.SIZE;
+
+        /**
+         * Perform rotation collision check
+         */
+        mino.checkRotationCollision();
+
+        /**
+         * Verify that left collision is detected correctly
+         */
+        assertTrue(mino.isLeftCollision());
+    }
+    
 }
