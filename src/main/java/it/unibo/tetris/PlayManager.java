@@ -16,6 +16,7 @@ import it.unibo.tetris.mino.api.Block;
 import it.unibo.tetris.mino.api.Mino;
 import it.unibo.tetris.mino.Mino_T;
 import it.unibo.tetris.mino.Mino_Z1;
+import it.unibo.tetris.mino.Mino_Z2;
 
 /**
  * Class {@link PlayManager}.
@@ -146,7 +147,7 @@ public class PlayManager {
                     mino = new Mino_Z1();
                     break;
                 case 6:
-                    //mino = new Mino_Z2();     Uncomment when respective classes are ready!!!
+                    mino = new Mino_Z2();
                     break;
             }
             return mino;
