@@ -1,7 +1,11 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import it.unibo.tetris.PlayManager;
 import it.unibo.tetris.mino.Mino_L2;
+import it.unibo.tetris.mino.api.Block;
 
 public class Mino_L2_Test {
     private Mino_L2 mino;
@@ -10,5 +14,25 @@ public class Mino_L2_Test {
     public void setUp() {
         mino = new Mino_L2();
         PlayManager playManager = new PlayManager();
+    }
+
+    @Test 
+    public void testSetXY() {
+        /**
+         * Set initial position
+         */
+        mino.setXY(PlayManager.MINO_START_X, PlayManager.MINO_START_Y);
+
+        /**
+         * Verify the position of all blocks
+         */
+        assertEquals(mino.b[0].x, PlayManager.MINO_START_X);
+        assertEquals(mino.b[0].y, PlayManager.MINO_START_Y);
+        assertEquals(mino.b[1].x, mino.b[0].x);
+        assertEquals(mino.b[1].y, mino.b[0].y - Block.SIZE);
+        assertEquals(mino.b[2].x, mino.b[0].x);
+        assertEquals(mino.b[2].y, mino.b[0].y + Block.SIZE);
+        assertEquals(mino.b[3].x, mino.b[0].x - Block.SIZE);
+        assertEquals(mino.b[3].y, mino.b[0].y + Block.SIZE);
     }
 }
