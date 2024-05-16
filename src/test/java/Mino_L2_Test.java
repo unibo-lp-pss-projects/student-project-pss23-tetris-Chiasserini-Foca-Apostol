@@ -60,4 +60,29 @@ public class Mino_L2_Test {
         assertEquals(mino.b[3].x, mino.b[0].x - Block.SIZE);
         assertEquals(mino.b[3].y, mino.b[0].y - Block.SIZE);
    }
+
+   @Test
+    public void testDirection2() {
+        /**
+         * Set initial position
+         */
+        mino.setXY(PlayManager.MINO_START_X, PlayManager.MINO_START_Y);
+        
+        /**
+         * Call getNExtDirection with starting direction 2
+         */ 
+        mino.getNextDirection(2);
+
+        /**
+         * Verify the position of all blocks
+         */
+        assertEquals(mino.b[0].x, PlayManager.MINO_START_X);
+        assertEquals(mino.b[0].y, PlayManager.MINO_START_Y);
+        assertEquals(mino.b[1].x, mino.b[0].x);
+        assertEquals(mino.b[1].y, mino.b[0].y + Block.SIZE);
+        assertEquals(mino.b[2].x, mino.b[0].x);
+        assertEquals(mino.b[2].y, mino.b[0].y - Block.SIZE);
+        assertEquals(mino.b[3].x, mino.b[0].x + Block.SIZE);
+        assertEquals(mino.b[3].y, mino.b[0].y - Block.SIZE);
+   }
 }
