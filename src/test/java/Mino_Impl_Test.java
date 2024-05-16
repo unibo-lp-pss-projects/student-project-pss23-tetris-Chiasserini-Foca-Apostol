@@ -82,4 +82,25 @@ public class Mino_Impl_Test {
          */
         assertTrue(mino.isLeftCollision());
     }
+
+    @Test
+    public void testMovementCollisionNoCollision() {
+        /**
+         * Move the mino 2 blocks right so it doesn't collide with the left boundary
+         */
+        mino.b[0].x = PlayManager.left_x + 2*Block.SIZE;
+        mino.b[1].x = PlayManager.left_x + 2*Block.SIZE;
+        mino.b[2].x = PlayManager.left_x + 2*Block.SIZE;
+        mino.b[3].x = PlayManager.left_x + 2*Block.SIZE;
+
+        /**
+         * Perform movement collision check
+         */
+        mino.checkMovementCollision();
+
+        /**
+         * Verify that left collision is detected correctly
+         */
+        assertFalse(mino.isLeftCollision());
+    }
 }
