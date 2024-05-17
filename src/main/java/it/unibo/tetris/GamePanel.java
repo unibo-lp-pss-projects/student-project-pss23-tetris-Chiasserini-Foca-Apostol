@@ -26,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable{
          */
         final int FPS = 60;
         Thread gameThread;
+        PlayManager pm;
 
         /**
          * Utility variable for call the PlayManager methods.
@@ -98,11 +99,14 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-        /*
-        * Update the game. 
-        */
+        /**
+         * Check if the game is paused.
+         * If it isn't, update it 
+         */
         public void update() {
-            playManager.update();
+            if (KeyHandler.pausePressed == false && pm.gameOver == false) {
+                pm.update();
+            }
         }
 
         /**
