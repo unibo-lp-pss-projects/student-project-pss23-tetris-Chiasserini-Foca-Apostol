@@ -369,5 +369,20 @@ public class PlayManager {
                 effectY.clear();
             }
         }
+
+        /**
+         * Draw Pause.
+         */
+        g2.setColor(Color.red);
+        g2.setFont(g2.getFont().deriveFont(50f));
+        if (gameOver) {
+            x = left_x + 25;
+            y = top_y + TITLE_HEIGHT + 320;
+            g2.drawString("GAME OVER", x, y);
+        } else if (KeyHandler.pausePressed) {
+            x = left_x + 70;
+            y = top_y + 320;
+            g2.drawString("PAUSED", x, y);
+        }
     }
 }
