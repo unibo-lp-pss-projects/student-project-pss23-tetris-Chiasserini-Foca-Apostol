@@ -325,5 +325,24 @@ public class PlayManager {
         g2.drawString("Alex - Raul - Tommy", x + 20, y);
         g2.setFont(new Font("Verdana", Font.BOLD, 80));
         g2.drawString("TETRIS", x * 2 + 60, y + 100);
+
+        /**
+         * Draw currentMino.
+         */
+        if (currentMino != null) {
+            currentMino.draw(g2);
+        }
+
+        /**
+         * Draw nextMino.
+         */
+        nextMino.draw(g2, 40);
+
+        /**
+         * Draw staticBlocks.
+         */
+        for (int i = 0; i < staticBlocks.size(); i++) {
+            staticBlocks.get(i).draw(g2);
+        }
     }
 }
