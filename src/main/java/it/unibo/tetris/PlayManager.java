@@ -94,26 +94,26 @@ public class PlayManager {
         bottom_y = top_y + HEIGHT;
 
         /*
-            * Set the starting Mino position.
-            */
+         * Set the starting Mino position.
+         */
         MINO_START_X = left_x + (WIDTH / 2) - Block.SIZE;
         MINO_START_Y = top_y + Block.SIZE;
 
         /*
-            * Set the nextMino position.
-            */
+         * Set the nextMino position.
+         */
         NEXTMINO_X = right_x + 175;
         NEXTMINO_Y = top_y + 500;
 
         /*
-            * Pick the nextMino and associate it the "Next Mino" position.
-            */ 
+         * Pick the nextMino and associate it the "Next Mino" position.
+         */ 
         nextMino = pickMino();
         nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
 
         /*
-            * Pick the first Mino and associate it the starting position.
-            */ 
+         * Pick the first Mino and associate it the starting position.
+         */ 
         currentMino = pickMino();
         currentMino.setXY(MINO_START_X, MINO_START_Y);
     }
@@ -160,25 +160,25 @@ public class PlayManager {
      */
     public void update() {
         /*
-            * Check if the currentMino is active
-            */
+         * Check if the currentMino is active
+         */
         if (currentMino.active == false) {
             /*
-                * If the mino is not active put in the staticBlocks
-                */
+             * If the mino is not active put in the staticBlocks
+             */
             staticBlocks.add(currentMino.b[0]);
             staticBlocks.add(currentMino.b[1]);
             staticBlocks.add(currentMino.b[2]);
             staticBlocks.add(currentMino.b[3]);
 
             /*
-                * Check gameover
-                */
+             * Check gameover
+             */
             if (currentMino.b[0].x == MINO_START_X && currentMino.b[0].y == MINO_START_Y) {
                 /*
-                    * If the currentMino x and y are the same of se statring position
-                    * it means that the game is over.
-                    */
+                 * If the currentMino x and y are the same of se statring position
+                 * it means that the game is over.
+                 */
                 gameOver = true;
                 GamePanel.music.stop();
                 GamePanel.soundEffect.play(2, false);
@@ -187,16 +187,16 @@ public class PlayManager {
             currentMino.deactivating = false;
 
             /*
-                * Raplace the currentMino with the neaxtMino.
-                */
+             * Raplace the currentMino with the neaxtMino.
+             */
             currentMino = nextMino;
             currentMino.setXY(MINO_START_X, MINO_START_Y);
             nextMino = pickMino();
             nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
 
             /*
-                * Check if some lines can be deleted. 
-                */
+             * Check if some lines can be deleted. 
+             */
             checkDelete();
         } else {
             currentMino.update();
@@ -213,8 +213,8 @@ public class PlayManager {
         int lineCount = 0;
     
         /*
-            * Count the number of staticBlocks. 
-            */ 
+         * Count the number of staticBlocks. 
+         */ 
         while (x < right_x && y < bottom_y) {
             for (int i = 0; i < staticBlocks.size(); i++) {
                 if (staticBlocks.get(i).x == x && staticBlocks.get(i).y == y) {
@@ -226,13 +226,13 @@ public class PlayManager {
     
             if (x == right_x) {
                 /*
-                    * If blockCount is equal to 12 means a line is full and must be deleted.
-                    */
+                 * If blockCount is equal to 12 means a line is full and must be deleted.
+                 */
                 if (blockCount == 12) {
     
                     /*
-                        * Remove all blocks at this y-coordinate
-                        */
+                     * Remove all blocks at this y-coordinate
+                     */
                     for (int i = staticBlocks.size() - 1; i > -1; i--) {
                         if (staticBlocks.get(i).y == y) {
                             staticBlocks.remove(i);
@@ -243,8 +243,8 @@ public class PlayManager {
                     lines++;
     
                     /*
-                        * Increase the level and the drop speed of the blocks. 
-                        */
+                     * Increase the level and the drop speed of the blocks. 
+                     */
                     if (lines % 10 == 0 && dropInterval > 1) {
                         level++;
                         if (dropInterval > 10) {
@@ -255,8 +255,8 @@ public class PlayManager {
                     }
     
                     /*
-                        * Shift down the remaining Block after a line deleted.
-                        */
+                     * Shift down the remaining Block after a line deleted.
+                     */
                     for (int i = 0; i < staticBlocks.size(); i++) {
                         if (staticBlocks.get(i).y < y) {
                             staticBlocks.get(i).y += Block.SIZE;
@@ -271,8 +271,8 @@ public class PlayManager {
         }
 
         /*
-            * Increase the score.
-            */
+         * Increase the score.
+         */
         if (lineCount > 0) {
             GamePanel.soundEffect.play(1, false);
             int singleLineScore = 10 * level;
@@ -287,15 +287,15 @@ public class PlayManager {
      */
     public void draw(Graphics2D g2) {
         /*
-            * Draw the PlayArea.
-            */        
+         * Draw the PlayArea.
+         */        
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(4f));
         g2.drawRoundRect(left_x - BORDER, top_y + TITLE_HEIGHT - BORDER, WIDTH + BORDER * 2, HEIGHT + BORDER * 2, 25, 25);
 
         /*
-            * Draw the nextMino window.
-            */
+         * Draw the nextMino window.
+         */
         int x = right_x + 130;
         int y = bottom_y - 200;
         g2.drawRoundRect(x, y + TITLE_HEIGHT, 200, 200, 25, 25);
@@ -303,8 +303,8 @@ public class PlayManager {
         g2.drawString("NEXT", x + 60, y + TITLE_HEIGHT + 60);
 
         /*
-            * Draw Scoreboard
-            */
+         * Draw Scoreboard
+         */
         g2.drawRoundRect(x, top_y + TITLE_HEIGHT, 250, 300, 25, 25);
         x += 40;
         y = top_y + TITLE_HEIGHT + 90;
@@ -316,8 +316,8 @@ public class PlayManager {
         y += 70;
 
         /*
-            * Draw Game Title.
-            */
+         * Draw Game Title.
+         */
         x = WIDTH/4;
         y = top_y + 30;
         g2.setColor(Color.white);
