@@ -85,6 +85,13 @@ public class PlayManager {
     boolean gameOver;
 
     /**
+     * Variables for Effects.
+     */
+    boolean effectCounterOn;
+    int effectCounter;
+    ArrayList<Integer> effectY = new ArrayList<>();
+
+    /**
      * Set Playarea bounds.
      */
     public PlayManager() {
@@ -343,6 +350,24 @@ public class PlayManager {
          */
         for (int i = 0; i < staticBlocks.size(); i++) {
             staticBlocks.get(i).draw(g2);
+        }
+
+        /**
+         * Draw effects.
+         */
+        if (effectCounterOn) {
+            effectCounter++;
+
+            g2.setColor(Color.red);
+            for (int i = 0; i < effectY.size(); ++i) {
+                g2.fillRect(left_x, effectY.get(i) + PlayManager.TITLE_HEIGHT, WIDTH, Block.SIZE);
+            }
+
+            if (effectCounter == 10) {
+                effectCounterOn = false;
+                effectCounter = 0;
+                effectY.clear();
+            }
         }
     }
 }
