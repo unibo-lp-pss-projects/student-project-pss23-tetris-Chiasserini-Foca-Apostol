@@ -13,6 +13,7 @@ public class Menu extends JPanel{
     
     private JPanel mainPanel;
     private JFrame frame;
+    private ImageIcon pageIcon = new ImageIcon("src/res/img/icon.png"); 
 
     private Toolkit toolkit = Toolkit.getDefaultToolkit();
     private Dimension screenSize = toolkit.getScreenSize();
@@ -111,7 +112,7 @@ public class Menu extends JPanel{
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);
-        //Manage the icon
+        window.setIconImage(pageIcon.getImage());
         return window;
     }
 }
