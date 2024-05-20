@@ -30,6 +30,21 @@ public class Menu extends JPanel{
 
     }
 
+    private JButton createButton(String name, int width, int height) {
+        JButton button = new JButton(name);
+        button.setPreferredSize(new Dimension(width, height));
+        button.setMaximumSize(new Dimension(width, height));
+        button.setMinimumSize(new Dimension(width, height));
+        button.setFont(new Font("Arial", Font.BOLD, 24));
+        button.setFocusPainted(false);
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        button.setOpaque(true);
+        button.setBackground(new Color(0x444444));
+        button.setForeground(Color.WHITE);
+        return button;
+    }
+    
     private JFrame createFrame(String title, Dimension screenSize ) {
 
         JFrame window = new JFrame(title);
