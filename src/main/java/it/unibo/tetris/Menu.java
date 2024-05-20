@@ -70,6 +70,20 @@ public class Menu extends JPanel{
                 gp.launchGame();
             }
         });
+
+        tutorialButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     private JButton createButton(String name, int width, int height) {
