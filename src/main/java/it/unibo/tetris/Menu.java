@@ -1,6 +1,8 @@
 package it.unibo.tetris;
 
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -29,6 +31,7 @@ public class Menu extends JPanel{
 
         //Creating the JFrame
         this.frame = createFrame("Tetris", screenSize);
+        frame.add(mainPanel);
 
         //Creating the JPanel
         this.mainPanel = new JPanel();
@@ -43,9 +46,10 @@ public class Menu extends JPanel{
         //Adding border to mainPanel
         Border border = BorderFactory.createEmptyBorder(300, 300, 300, 300);
         mainPanel.setBorder(border);
-
         mainPanel.setPreferredSize(new Dimension(WIDTH / 2, (int) Math.round(HEIGHT * 0.9)));
 
+        //Adding functions to buttons
+        
     }
 
     private JButton createButton(String name, int width, int height) {
