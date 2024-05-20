@@ -49,7 +49,27 @@ public class Menu extends JPanel{
         mainPanel.setPreferredSize(new Dimension(WIDTH / 2, (int) Math.round(HEIGHT * 0.9)));
 
         //Adding functions to buttons
-        
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                frame.setVisible(false);
+                
+                JFrame gameWindow = createFrame("Tetris", new Dimension(WIDTH/2, (int)Math.round(HEIGHT*0.9)));
+
+
+                /*
+                 * Adding the GamePanel to the window.
+                 */
+                GamePanel gp = new GamePanel();
+                gameWindow.add(gp);
+
+                /*
+                 * Starting the game
+                */
+                gp.launchGame();
+            }
+        });
     }
 
     private JButton createButton(String name, int width, int height) {
