@@ -44,6 +44,8 @@ public class Menu extends JPanel{
         Border border = BorderFactory.createEmptyBorder(300, 300, 300, 300);
         mainPanel.setBorder(border);
 
+        mainPanel.setPreferredSize(new Dimension(WIDTH / 2, (int) Math.round(HEIGHT * 0.9)));
+
     }
 
     private JButton createButton(String name, int width, int height) {
