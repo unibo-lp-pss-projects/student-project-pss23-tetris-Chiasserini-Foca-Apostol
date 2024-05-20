@@ -21,6 +21,11 @@ public class Menu extends JPanel{
 
     public Menu() {
 
+        //Creating JButtons
+        this.startButton = this.createButton("START", this.WIDTH/9, this.HEIGHT/8);
+        this.tutorialButton = this.createButton("TUTORIAL", this.WIDTH/9, this.HEIGHT/8);
+        this.quitButton = this.createButton("QUIT", this.WIDTH/9, this.HEIGHT/8);
+
         //Create the JFrame
         this.frame = createFrame("Tetris", screenSize);
 
@@ -44,7 +49,7 @@ public class Menu extends JPanel{
         button.setForeground(Color.WHITE);
         return button;
     }
-    
+
     private JFrame createFrame(String title, Dimension screenSize ) {
 
         JFrame window = new JFrame(title);
