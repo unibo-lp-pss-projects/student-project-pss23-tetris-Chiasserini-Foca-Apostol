@@ -33,6 +33,11 @@ public class Menu extends JPanel{
         this.mainPanel = new JPanel();
         mainPanel.setBackground(Color.black);
 
+        //Adding buttons to JPanel
+        mainPanel.add(startButton, BorderLayout.NORTH);
+        mainPanel.add(tutorialButton, BorderLayout.CENTER);
+        mainPanel.add(quitButton, BorderLayout.SOUTH);
+
     }
 
     private JButton createButton(String name, int width, int height) {
