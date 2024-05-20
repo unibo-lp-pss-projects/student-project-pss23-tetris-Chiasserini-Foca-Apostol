@@ -4,6 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Menu extends JPanel{
+    private JButton startButton;
+    private JButton tutorialButton;
+    private JButton quitButton;
     
     private JPanel mainPanel;
     private JFrame frame;
