@@ -13,22 +13,10 @@ public class Main {
      * @param args The {@link String}[] args.
      */
     public static void main(String[] args) {
-        /*
-         * Create JFrame and set it visible.
+       /**
+         * Add the Menu panel to the window.
          */
-        JFrame gameWindow = new JFrame("Tetris"); 
-        gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameWindow.setResizable(false);        
-
-        /*
-         * Add GamePanel to the gameWindow.
-         */
-        GamePanel gp = new GamePanel();
-        gameWindow.add(gp);
-        gameWindow.pack();
-
-        gameWindow.setLocationRelativeTo(null);
-        gameWindow.setVisible(true);
+        new Menu();
     }
     
 }
