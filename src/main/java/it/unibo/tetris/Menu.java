@@ -32,6 +32,7 @@ public class Menu extends JPanel{
         //Create the JPanel
         this.mainPanel = new JPanel();
         mainPanel.setBackground(Color.black);
+        mainPanel.setLayout(new GridLayout(3, 1, 10, 30));
 
         //Adding buttons to JPanel
         mainPanel.add(startButton, BorderLayout.NORTH);
