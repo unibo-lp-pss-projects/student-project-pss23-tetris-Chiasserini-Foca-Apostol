@@ -9,5 +9,11 @@ public class Tutorial extends JPanel{
     // Button credits: Freepik.com
     private ImageIcon backButtonImage = new ImageIcon("src/res/img/back-button.png");
 
-    
+    public Tutorial(JFrame parentFrame) {
+        
+        mainImage = icon.getImage();
+        this.setBackground(Color.black);
+
+        
+    }
 }
