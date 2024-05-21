@@ -16,9 +16,9 @@ import it.unibo.tetris.mino.api.Block;
 public class Mino_Impl_Test {
      private Mino_Impl mino;
 
-     /**
-      * BeforeEach test create a new {@link Mino}
-      */
+    /**
+     * BeforeEach test create a new {@link Mino}.
+     */
     @BeforeEach
     public void setUp() {
         mino = new Mino_Impl();
@@ -34,7 +34,7 @@ public class Mino_Impl_Test {
     @Test
     public void testRotationCollisionWithCollision() {
         /*
-         * Move the mino to the left so that it collides with the left boundary
+         * Move the mino to the left so that it collides with the left boundary.
          */
         mino.tempB[0].x = PlayManager.left_x - Block.SIZE;
         mino.tempB[1].x = PlayManager.left_x - Block.SIZE;
@@ -42,12 +42,12 @@ public class Mino_Impl_Test {
         mino.tempB[3].x = PlayManager.left_x - Block.SIZE;
 
         /*
-         * Perform rotation collision check
+         * Perform rotation collision check.
          */
         mino.checkRotationCollision();
 
         /*
-         * Verify that left collision is detected correctly
+         * Verify that left collision is detected correctly.
          */
         assertTrue(mino.isLeftCollision());
     }
@@ -58,7 +58,7 @@ public class Mino_Impl_Test {
     @Test
     public void testRotationCollisionNoCollision() {
         /*
-         * Move the mino to the left so that it collides with the left boundary
+         * Move the mino to the left so that it collides with the left boundary.
          */
         mino.tempB[0].x = PlayManager.left_x +  2*Block.SIZE;
         mino.tempB[1].x = PlayManager.left_x +  2*Block.SIZE;
@@ -66,12 +66,12 @@ public class Mino_Impl_Test {
         mino.tempB[3].x = PlayManager.left_x +  2*Block.SIZE;
 
         /*
-         * Perform rotation collision check
+         * Perform rotation collision check.
          */
         mino.checkRotationCollision();
 
         /*
-         * Verify that left collision is detected correctly
+         * Verify that left collision is detected correctly.
          */
         assertFalse(mino.isLeftCollision());
     }    
@@ -82,7 +82,7 @@ public class Mino_Impl_Test {
     @Test
     public void testMovementCollisionWithCollision() {
         /*
-         * Move the mino to the left so that it collides with the left boundary
+         * Move the mino to the left so that it collides with the left boundary.
          */
         mino.b[0].x = PlayManager.left_x;
         mino.b[1].x = PlayManager.left_x;
@@ -90,12 +90,12 @@ public class Mino_Impl_Test {
         mino.b[3].x = PlayManager.left_x;
 
         /*
-         * Perform movement collision check
+         * Perform movement collision check.
          */
         mino.checkMovementCollision();
 
         /*
-         * Verify that left collision is detected correctly
+         * Verify that left collision is detected correctly.
          */
         assertTrue(mino.isLeftCollision());
     }
@@ -106,7 +106,7 @@ public class Mino_Impl_Test {
     @Test
     public void testMovementCollisionNoCollision() {
         /*
-         * Move the mino 2 blocks right so it doesn't collide with the left boundary
+         * Move the mino 2 blocks right so it doesn't collide with the left boundary.
          */
         mino.b[0].x = PlayManager.left_x + 2*Block.SIZE;
         mino.b[1].x = PlayManager.left_x + 2*Block.SIZE;
@@ -114,12 +114,12 @@ public class Mino_Impl_Test {
         mino.b[3].x = PlayManager.left_x + 2*Block.SIZE;
 
         /*
-         * Perform movement collision check
+         * Perform movement collision check.
          */
         mino.checkMovementCollision();
 
         /*
-         * Verify that left collision is detected correctly
+         * Verify that left collision is detected correctly.
          */
         assertFalse(mino.isLeftCollision());
     }
