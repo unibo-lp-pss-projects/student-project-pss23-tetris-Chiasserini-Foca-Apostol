@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class Tutorial extends JPanel{
     private Image mainImage;
+    private Dimension imageSize;
     private ImageIcon icon = new ImageIcon("src/res/img/tutorial.png");
     // Button credits: Freepik.com
     private ImageIcon backButtonImage = new ImageIcon("src/res/img/back-button.png");
@@ -27,5 +28,13 @@ public class Tutorial extends JPanel{
 
         this.add(backButton);
 
+    }
+
+    public Dimension getImageSize() {
+
+        ImageIcon image = this.icon;
+        Dimension size = new Dimension(image.getIconWidth(), image.getIconHeight()+backButtonImage.getIconHeight()+20);
+        return size;
+              
     }
 }
