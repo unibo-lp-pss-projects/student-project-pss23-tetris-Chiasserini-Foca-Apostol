@@ -2,6 +2,7 @@ package it.unibo.tetris;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class Tutorial extends JPanel{
     private Image mainImage;
@@ -33,8 +34,16 @@ public class Tutorial extends JPanel{
         setMinimumSize(imageSize);
         setMaximumSize(imageSize);
         setSize(imageSize);
-        
         setLayout(null);
+
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parentFrame.setVisible(true);
+                JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(Tutorial.this);
+                currentFrame.dispose();
+            }
+        });
 
     }
 
