@@ -47,6 +47,13 @@ public class Tutorial extends JPanel{
 
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        int yOffset = backButtonImage.getIconHeight()+10; 
+        g.drawImage(mainImage, 0, yOffset, this);
+    }
+
     public Dimension getImageSize() {
 
         ImageIcon image = this.icon;
