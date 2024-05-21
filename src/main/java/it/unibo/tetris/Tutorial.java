@@ -14,6 +14,13 @@ public class Tutorial extends JPanel{
         mainImage = icon.getImage();
         this.setBackground(Color.black);
 
-        
+        //Creating JButton and setting its values
+
+        JButton backButton = new JButton();
+        backButton.setBounds(5, 5, 64, 64);
+        backButton.setIcon(backButtonImage);
+        backButton.setOpaque(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setBorderPainted(false);
     }
 }
