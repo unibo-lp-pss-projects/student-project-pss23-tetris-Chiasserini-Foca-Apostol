@@ -16,18 +16,21 @@ public class Tutorial extends JPanel{
     /**
      * Button image credits: Freepik.com
      */
-
     private ImageIcon backButtonImage = new ImageIcon("src/res/img/back-button.png");
 
+    /**
+     * Resize {@link JPanel} and add backButton.
+     * 
+     * @param parentFrame
+     */
     public Tutorial(JFrame parentFrame) {
         
         mainImage = icon.getImage();
         this.setBackground(Color.black);
 
-        /**
-         * Creating JButton and setting its values
+        /*
+         * Creating JButton and setting its values.
          */
-
         JButton backButton = new JButton();
         backButton.setBounds(5, 5, 64, 64);
         backButton.setIcon(backButtonImage);
@@ -35,16 +38,14 @@ public class Tutorial extends JPanel{
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
 
-        /**
-         * Adding Button to the panel
+        /*
+         * Adding Button to the panel.
          */
-
         this.add(backButton);
 
-        /**
-         * Getting the size of the main image and resizing the JPanel
+        /*
+         * Getting the size of the main image and resizing the JPanel.
          */
-
         this.imageSize = getImageSize();
         setPreferredSize(imageSize);
         setMinimumSize(imageSize);
@@ -52,6 +53,9 @@ public class Tutorial extends JPanel{
         setSize(imageSize);
         setLayout(null);
 
+        /*
+         * Adding function to backButton.
+         */
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,6 +67,9 @@ public class Tutorial extends JPanel{
 
     }
 
+    /**
+     * Draw Image and backButton.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -74,12 +81,9 @@ public class Tutorial extends JPanel{
     /**
      * This method is used to get the main image {@link Dimension} size.
      */
-
     public Dimension getImageSize() {
-
         ImageIcon image = this.icon;
         Dimension size = new Dimension(image.getIconWidth(), image.getIconHeight()+backButtonImage.getIconHeight()+20);
-        return size;
-              
+        return size;   
     }
 }
