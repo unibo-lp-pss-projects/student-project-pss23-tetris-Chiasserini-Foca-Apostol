@@ -22,5 +22,10 @@ public class Tutorial extends JPanel{
         backButton.setOpaque(false);
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
+
+        //Adding Button to the panel
+
+        this.add(backButton);
+
     }
 }
