@@ -7,16 +7,8 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 
-import it.unibo.tetris.mino.Mino_Bar;
-import it.unibo.tetris.mino.Mino_Impl;
-import it.unibo.tetris.mino.Mino_L1;
-import it.unibo.tetris.mino.Mino_L2;
-import it.unibo.tetris.mino.Mino_Square;
-import it.unibo.tetris.mino.api.Block;
-import it.unibo.tetris.mino.api.Mino;
-import it.unibo.tetris.mino.Mino_T;
-import it.unibo.tetris.mino.Mino_Z1;
-import it.unibo.tetris.mino.Mino_Z2;
+import it.unibo.tetris.mino.*;
+import it.unibo.tetris.mino.api.*;
 
 /**
  * Class {@link PlayManager}.
