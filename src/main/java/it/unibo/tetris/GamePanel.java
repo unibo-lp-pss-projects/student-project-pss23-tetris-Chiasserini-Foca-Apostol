@@ -26,12 +26,12 @@ public class GamePanel extends JPanel implements Runnable{
          */
         final int FPS = 60;
         Thread gameThread;
-        PlayManager pm;
+  
 
         /**
-         * Utility variable for call the PlayManager methods.
+         * Utility variable for calling the PlayManager methods.
          */
-        PlayManager playManager;
+        PlayManager pm;
 
         /**
          * {@link Sound} variable for play background soundtrack.
@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
             this.addKeyListener(new KeyHandler());
             this.setFocusable(true);
 
-            playManager = new PlayManager();
+            pm = new PlayManager();
         }
     
         /**
@@ -116,7 +116,7 @@ public class GamePanel extends JPanel implements Runnable{
             super.paintComponent(g); 
 
             Graphics2D g2 = (Graphics2D) g;
-            playManager.draw(g2);
+            pm.draw(g2);
         }
         
 }
