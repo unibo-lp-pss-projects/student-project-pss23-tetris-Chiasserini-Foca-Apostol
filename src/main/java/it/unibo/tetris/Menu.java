@@ -75,7 +75,14 @@ public class Menu extends JPanel{
         tutorialButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+
+                Tutorial tutorial = new Tutorial(frame);
+                Dimension size = tutorial.getImageSize();
+                
+                frame.setVisible(false);
+                JFrame tutorialWindow = createFrame("Tutorial", size);
+
+                tutorialWindow.add(tutorial);
             }
         });
 
