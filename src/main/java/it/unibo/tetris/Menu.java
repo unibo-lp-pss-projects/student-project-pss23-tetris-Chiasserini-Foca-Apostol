@@ -6,6 +6,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/**
+ * Class {@link Menu} that implements the game's Menu
+ * extends {@link JPanel}
+ */
+
 public class Menu extends JPanel{
     private JButton startButton;
     private JButton tutorialButton;
@@ -18,38 +23,58 @@ public class Menu extends JPanel{
     private Toolkit toolkit = Toolkit.getDefaultToolkit();
     private Dimension screenSize = toolkit.getScreenSize();
 
-    //Utility costant
+    /**
+     * Utility costants
+     */ 
+
     public final int WIDTH = screenSize.width; 
-    //Utility costant
     public final Integer HEIGHT = screenSize.height; 
 
     public Menu() {
 
-        //Creating JButtons
+        /**
+         * Creating JButtons
+         */
+
         this.startButton = this.createButton("START", this.WIDTH/9, this.HEIGHT/8);
         this.tutorialButton = this.createButton("TUTORIAL", this.WIDTH/9, this.HEIGHT/8);
         this.quitButton = this.createButton("QUIT", this.WIDTH/9, this.HEIGHT/8);
 
-        //Creating the JPanel
+        /**
+         * Creating JPanel
+         */
+
         this.mainPanel = new JPanel();
         mainPanel.setBackground(Color.black);
         mainPanel.setLayout(new GridLayout(3, 1, 10, 30));
 
-        //Adding buttons to JPanel
+        /**
+         * Adding buttons to JPanel
+         */ 
+
         mainPanel.add(startButton, BorderLayout.NORTH);
         mainPanel.add(tutorialButton, BorderLayout.CENTER);
         mainPanel.add(quitButton, BorderLayout.SOUTH);
 
-        //Creating the JFrame
+        /**
+         * Creating the JFrame
+         */
+
         this.frame = createFrame("Tetris", screenSize);
         frame.add(mainPanel);
 
-        //Adding border to mainPanel
+        /**
+         * Adding border to mainPanel
+         */
+
         Border border = BorderFactory.createEmptyBorder(300, 300, 300, 300);
         mainPanel.setBorder(border);
         mainPanel.setPreferredSize(new Dimension(WIDTH / 2, (int) Math.round(HEIGHT * 0.9)));
 
-        //Adding functions to buttons
+        /**
+         * Adding functions to buttons
+         */
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,16 +83,17 @@ public class Menu extends JPanel{
                 
                 JFrame gameWindow = createFrame("Tetris", new Dimension(WIDTH/2, (int)Math.round(HEIGHT*0.9)));
 
-
                 /*
                  * Adding the GamePanel to the window.
                  */
+                
                 GamePanel gp = new GamePanel();
                 gameWindow.add(gp);
 
                 /*
                  * Starting the game
-                */
+                 */
+
                 gp.launchGame();
             }
         });
@@ -94,6 +120,14 @@ public class Menu extends JPanel{
         });
     }
 
+    /**
+     * Creates a new {@link JButton} button.
+     * 
+     * @param name
+     * @param width
+     * @param height
+     */
+
     private JButton createButton(String name, int width, int height) {
         JButton button = new JButton(name);
         button.setPreferredSize(new Dimension(width, height));
@@ -108,6 +142,13 @@ public class Menu extends JPanel{
         button.setForeground(Color.WHITE);
         return button;
     }
+
+    /**
+     * Creates a new {@link JFrame} frame.
+     * 
+     * @param title
+     * @param screenSize
+     */
 
     private JFrame createFrame(String title, Dimension screenSize ) {
 
