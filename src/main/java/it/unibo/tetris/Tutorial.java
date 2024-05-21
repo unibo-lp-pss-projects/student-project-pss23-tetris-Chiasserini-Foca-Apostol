@@ -28,6 +28,14 @@ public class Tutorial extends JPanel{
 
         this.add(backButton);
 
+        this.imageSize = getImageSize();
+        setPreferredSize(imageSize);
+        setMinimumSize(imageSize);
+        setMaximumSize(imageSize);
+        setSize(imageSize);
+        
+        setLayout(null);
+
     }
 
     public Dimension getImageSize() {
