@@ -1,7 +1,5 @@
 package it.unibo.tetris;
 
-import javax.swing.JFrame;
-
 /**
  * Class {@link Main}, the main of the project
  */
