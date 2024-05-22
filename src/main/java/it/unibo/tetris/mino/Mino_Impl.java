@@ -9,26 +9,48 @@ import it.unibo.tetris.PlayManager;
 import it.unibo.tetris.mino.api.Block;
 import it.unibo.tetris.mino.api.Mino;
 
+/**
+* Class {@link Mino_Impl} that implement the interface {@link Mino}.
+*/
 public class Mino_Impl implements Mino {
+    /**
+     * Utility constants.
+     */
     private static final int NUM_OF_BLOCK_OF_A_MINO = 4;
     private static final int STARTING_DIRECTION = 1;
-    // Create and instantiate 2 array of Block
+    /**
+     * Create and instantiate 2 array of {@link Block}s 
+     * of {@link NUM_OF_BLOCK_OF_A_MINO} spaces.
+     */
     public Block b[] = new Block[NUM_OF_BLOCK_OF_A_MINO];
     public Block tempB[] = new Block[NUM_OF_BLOCK_OF_A_MINO];
 
-    // Utility counter
-    int autoDropCounter = 0, deactivateCounter = 0;
+    /**
+     * Utility counters.
+     */
+    private int autoDropCounter = 0;
+    private int deactivateCounter = 0;
 
-    // Starting direction
+    /**
+     * Starting direction.
+     */
     public int direction = STARTING_DIRECTION;
 
-    // Boolean for detect collisions and for activate and deactivate
-    boolean leftCollision,
-            rightCollision,
-            bottomCollision;
-    public boolean active = true, deactivating;
+    /**
+     * Boolean for detect collisions
+     * and for activate and deactivate {@link Mino}s.
+     */
+    private boolean leftCollision,
+                    rightCollision,
+                    bottomCollision;
+    public boolean active = true;
+    public boolean deactivating;
 
-    // Creates a new Mino_Impl with the given Color.
+    /**
+     * Creates a new {@link Mino_Impl} with the given {@link Color}.
+     *
+     * @param c The {@link Color} of the Mino_Impl.
+     */
     @Override
     public void create(Color c) {
         b[0] = new Block(c);
@@ -42,10 +64,12 @@ public class Mino_Impl implements Mino {
     }
     
     @Override
-    public void setXY(int x, int y) {
-        
+    public void setXY(int x, int y) { 
     }
 
+    /**
+     * Check rotation collion and update position.
+     */
     @Override
     public void updateXY(int direction) {
         checkRotationCollision();
@@ -71,9 +95,11 @@ public class Mino_Impl implements Mino {
 
     @Override
     public void getNextDirection(int direction) {
-        
     }
 
+    /**
+     * Checks for collisions when moving the {@link Mino}.
+     */
     @Override
     public void checkMovementCollision() {
  
@@ -82,12 +108,12 @@ public class Mino_Impl implements Mino {
         bottomCollision = false;
 
         /*
-         * Check StaticBlock collision 
+         * Check StaticBlock collision.
          */ 
         checkStaticBlockCollision();
 
         /*
-         * Check left wall collision
+         * Check left wall collision.
          */
         for (int i = 0; i < b.length; i++) {
             if (b[i].x == PlayManager.left_x) {
@@ -95,7 +121,7 @@ public class Mino_Impl implements Mino {
             }
         }
         /*
-         * Check right wall collision
+         * Check right wall collision.
          */
         for (int i = 0; i < b.length; i++) {
             if (b[i].x + Block.SIZE == PlayManager.right_x) {
@@ -103,7 +129,7 @@ public class Mino_Impl implements Mino {
             }
         }
         /*
-         * Check bottom bound collision
+         * Check bottom bound collision.
          */
         for (int i = 0; i < b.length; i++) {
             if (b[i].y + Block.SIZE == PlayManager.bottom_y) {
@@ -112,6 +138,9 @@ public class Mino_Impl implements Mino {
         }
     }
 
+    /**
+     * Checks for collisions when rotating the {@link Mino}.
+     */
     @Override
     public void checkRotationCollision() {
 
@@ -120,12 +149,12 @@ public class Mino_Impl implements Mino {
         bottomCollision = false;
 
         /*
-         * Check StaticBlock collision 
+         * Check StaticBlock collision.
          */
         checkStaticBlockCollision();
 
         /*
-         * Check left wall collision
+         * Check left wall collision.
          */
         for (int i = 0; i < b.length; i++) {
             if (tempB[i].x < PlayManager.left_x) {
@@ -133,7 +162,7 @@ public class Mino_Impl implements Mino {
             }
         }
         /*
-         * Check right wall collision
+         * Check right wall collision.
          */
         for (int i = 0; i < b.length; i++) {
             if (tempB[i].x + Block.SIZE > PlayManager.right_x) {
@@ -141,7 +170,7 @@ public class Mino_Impl implements Mino {
             }
         }
         /*
-         * Check bottom bound collision
+         * Check bottom bound collision.
          */
         for (int i = 0; i < b.length; i++) {
             if (tempB[i].y + Block.SIZE > PlayManager.bottom_y) {
@@ -150,6 +179,9 @@ public class Mino_Impl implements Mino {
         }
     }
 
+    /**
+     * Checks for collisions when the {@link Mino} becomes static.
+     */
     @Override
     public void checkStaticBlockCollision() {
         for (int i = 0; i < PlayManager.staticBlocks.size(); i++) {
@@ -186,6 +218,9 @@ public class Mino_Impl implements Mino {
         }
     }
 
+    /**
+     * Updates the {@link Mino}'s state based on its current state and game rules.
+     */
     @Override
     public void update() {
 
@@ -300,7 +335,11 @@ public class Mino_Impl implements Mino {
         }
     }
 
-
+    /**
+     * Draws the {@link Mino} on the given {@link Graphics2D} object.
+     *
+     * @param g2 The {@link Graphics2D} object to draw on.
+     */
     @Override
     public void draw(Graphics2D g2) {
         g2.setColor(b[0].c);
@@ -322,7 +361,11 @@ public class Mino_Impl implements Mino {
                 Block.SIZE - (Block.MARGIN * 2), 8, 8);
     }
 
-
+    /**
+     * Draws the {@link Mino} on the given {@link Graphics2D} object adding an offset.
+     *
+     * @param g2 The {@link Graphics2D} object to draw on.
+     */
     public void draw(Graphics2D g2, int offset) {
         g2.setColor(b[0].c);
         g2.fillRoundRect(b[0].x + offset + Block.MARGIN,
@@ -346,6 +389,7 @@ public class Mino_Impl implements Mino {
 
     /**
      * Getter of leftCollision value.
+     * @return leftCollision.
      */
     public boolean isLeftCollision() {
         return leftCollision;
@@ -353,6 +397,7 @@ public class Mino_Impl implements Mino {
 
     /**
      * Getter of rightCollision value.
+     * @return rightCollision.
      */
     public boolean isRightCollision() {
         return rightCollision;
@@ -360,15 +405,17 @@ public class Mino_Impl implements Mino {
 
     /**
      * Getter of bottomCollision value.
+     * @return bottomCollision.
      */
     public boolean isBottomCollision() {
         return bottomCollision;
     }
 
+    /**
+     * Getter deactivating status.
+     * @return deactivating.
+     */
     public boolean isDeactivating() {
         return deactivating;
     }
-
-
 }
-
