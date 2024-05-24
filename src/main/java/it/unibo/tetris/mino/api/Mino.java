@@ -23,7 +23,8 @@ public interface Mino {
     public void setXY(int x, int y);
 
     /**
-     * Updates the x and y coordinates of the {@link Mino} based on the given direction.
+     * Updates the x and y coordinates of the {@link Mino} 
+     * based on the given direction.
      *
      * @param direction The direction to update the coordinates.
      */

@@ -60,7 +60,8 @@ public class Tutorial extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 parentFrame.setVisible(true);
-                JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(Tutorial.this);
+                JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(
+                                                                Tutorial.this);
                 currentFrame.dispose();
             }
         });
@@ -83,7 +84,9 @@ public class Tutorial extends JPanel{
      */
     public Dimension getImageSize() {
         ImageIcon image = this.icon;
-        Dimension size = new Dimension(image.getIconWidth(), image.getIconHeight()+backButtonImage.getIconHeight()+20);
+        Dimension size = new Dimension(image.getIconWidth(), 
+                                       image.getIconHeight() + 
+                                       backButtonImage.getIconHeight()+20);
         return size;   
     }
 }

@@ -37,10 +37,10 @@ public class Sound {
      * @param soundIndex index of the sound
      * @param music boolean for play the sound 
      */
-    public void play(int soundIndex, boolean music){
-        
+    public void play(int soundIndex, boolean music) {
         try {
-            AudioInputStream ais = AudioSystem.getAudioInputStream(sounds[soundIndex]);
+            AudioInputStream ais;
+            ais = AudioSystem.getAudioInputStream(sounds[soundIndex]);
             Clip clip = AudioSystem.getClip();
 
             if (music) {
@@ -48,8 +48,8 @@ public class Sound {
             }
 
             /*
-             * Behaviour of the class when the sound finishes playing.
-             */
+            * Behaviour of the class when the sound finishes playing.
+            */
             clip.open(ais);
             clip.addLineListener(new LineListener() {
                 @Override
@@ -61,8 +61,7 @@ public class Sound {
             });
             ais.close();
             clip.start();
-        } catch (Exception e){
-
+        } catch (Exception e) {
         }
     }
 
@@ -89,7 +88,9 @@ public class Sound {
      */
     public void setVolume(float volume) {
         if (musicClip != null) {
-            FloatControl control = (FloatControl)musicClip.getControl(FloatControl.Type.MASTER_GAIN);
+            FloatControl control;   
+            control = (FloatControl) musicClip.getControl(
+                FloatControl.Type.MASTER_GAIN);
             control.setValue(volume);
         }
     } 

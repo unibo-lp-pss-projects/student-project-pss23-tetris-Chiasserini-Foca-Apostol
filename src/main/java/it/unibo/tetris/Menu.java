@@ -45,9 +45,15 @@ public class Menu extends JPanel{
         /*
          * Creating JButtons.
          */
-        this.startButton = this.createButton("START", this.WIDTH/9, this.HEIGHT/8);
-        this.tutorialButton = this.createButton("TUTORIAL", this.WIDTH/9, this.HEIGHT/8);
-        this.quitButton = this.createButton("QUIT", this.WIDTH/9, this.HEIGHT/8);
+        this.startButton = this.createButton("START", 
+                                            this.WIDTH/9, 
+                                            this.HEIGHT/8);
+        this.tutorialButton = this.createButton("TUTORIAL", 
+                                                this.WIDTH/9, 
+                                                this.HEIGHT/8);
+        this.quitButton = this.createButton("QUIT", 
+                                            this.WIDTH/9,
+                                            this.HEIGHT/8);
 
         /*
          * Creating JPanel setting his background and layout.
@@ -72,9 +78,13 @@ public class Menu extends JPanel{
         /*
          * Adding border to mainPanel.
          */
-        Border border = BorderFactory.createEmptyBorder(300, 300, 300, 300);
+        Border border = BorderFactory.createEmptyBorder(300, 
+                                                        300,
+                                                        300,
+                                                        300);
         mainPanel.setBorder(border);
-        mainPanel.setPreferredSize(new Dimension(WIDTH / 2, (int) Math.round(HEIGHT * 0.9)));
+        mainPanel.setPreferredSize(new Dimension(WIDTH / 2, 
+                                   (int) Math.round(HEIGHT * 0.9)));
 
         /*
          * Adding function to startButton.
@@ -85,7 +95,9 @@ public class Menu extends JPanel{
 
                 frame.setVisible(false);
                 
-                JFrame gameWindow = createFrame("Tetris", new Dimension(WIDTH/2, (int)Math.round(HEIGHT*0.9)));
+                JFrame gameWindow = createFrame("Tetris", 
+                                                new Dimension(WIDTH/2, 
+                                                (int)Math.round(HEIGHT*0.9)));
 
                 /*
                  * Adding the GamePanel to the window.

@@ -362,7 +362,8 @@ public class Mino_Impl implements Mino {
     }
 
     /**
-     * Draws the {@link Mino} on the given {@link Graphics2D} object adding an offset.
+     * Draws the {@link Mino} on the given {@link Graphics2D} object 
+     * adding an offset.
      *
      * @param g2 The {@link Graphics2D} object to draw on.
      */

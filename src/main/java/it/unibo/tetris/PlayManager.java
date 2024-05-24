@@ -173,7 +173,8 @@ public class PlayManager {
             /*
              * Check gameover
              */
-            if (currentMino.b[0].x == MINO_START_X && currentMino.b[0].y == MINO_START_Y) {
+            if (currentMino.b[0].x == MINO_START_X && 
+                currentMino.b[0].y == MINO_START_Y) {
                 /*
                  * If the currentMino x and y are the same of se statring position
                  * it means that the game is over.
@@ -225,7 +226,8 @@ public class PlayManager {
     
             if (x == right_x) {
                 /*
-                 * If blockCount is equal to 12 means a line is full and must be deleted.
+                 * If blockCount is equal to 12 means a line is full
+                 * and must be deleted.
                  */
                 if (blockCount == 12) {
     
@@ -290,7 +292,12 @@ public class PlayManager {
          */        
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(4f));
-        g2.drawRoundRect(left_x - BORDER, top_y + TITLE_HEIGHT - BORDER, WIDTH + BORDER * 2, HEIGHT + BORDER * 2, 25, 25);
+        g2.drawRoundRect(left_x - BORDER, 
+                         top_y + TITLE_HEIGHT - BORDER, 
+                         WIDTH + BORDER * 2, 
+                         HEIGHT + BORDER * 2, 
+                         25,
+                         25);
 
         /*
          * Draw the nextMino window.
@@ -352,7 +359,10 @@ public class PlayManager {
 
             g2.setColor(Color.red);
             for (int i = 0; i < effectY.size(); ++i) {
-                g2.fillRect(left_x, effectY.get(i) + PlayManager.TITLE_HEIGHT, WIDTH, Block.SIZE);
+                g2.fillRect(left_x, 
+                            effectY.get(i) + PlayManager.TITLE_HEIGHT, 
+                            WIDTH, 
+                            Block.SIZE);
             }
 
             if (effectCounter == 10) {

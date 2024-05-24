@@ -48,6 +48,11 @@ public class Block extends Rectangle {
       */
     public void draw(Graphics2D g2) { 
         g2.setColor(c);
-        g2.fillRoundRect(x + MARGIN, y + PlayManager.TITLE_HEIGHT + MARGIN, SIZE - (MARGIN * 2), SIZE - (MARGIN * 2), 8, 8);
+        g2.fillRoundRect(x + MARGIN, 
+                         y + PlayManager.TITLE_HEIGHT + MARGIN, 
+                         SIZE - (MARGIN * 2), 
+                         SIZE - (MARGIN * 2), 
+                         8, 
+                         8);
     }
 }

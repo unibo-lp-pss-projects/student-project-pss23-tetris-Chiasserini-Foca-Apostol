@@ -12,7 +12,8 @@ import it.unibo.tetris.mino.api.Mino;
 public class Mino_Square extends Mino_Impl {
 
     /**
-     * Constructor for {@link Mino_Square} class which creates a new Mino_Square object with
+     * Constructor for {@link Mino_Square} class 
+     * which creates a new Mino_Square object with
      * a yellow {@link Color}.
      */
     public Mino_Square() {
