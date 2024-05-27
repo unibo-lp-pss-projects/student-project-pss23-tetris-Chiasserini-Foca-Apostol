@@ -92,8 +92,6 @@ public class Menu extends JPanel{
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                frame.setVisible(false);
                 
                 JFrame gameWindow = createFrame("Tetris", 
                                                 new Dimension(WIDTH/2, 
@@ -109,6 +107,7 @@ public class Menu extends JPanel{
                  * Starting the game.
                  */
                 gp.launchGame();
+                frame.dispose();
             }
         });
 
