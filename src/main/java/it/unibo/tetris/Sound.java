@@ -39,8 +39,7 @@ public class Sound {
      */
     public void play(int soundIndex, boolean music) {
         try {
-            AudioInputStream ais;
-            ais = AudioSystem.getAudioInputStream(sounds[soundIndex]);
+            AudioInputStream ais = AudioSystem.getAudioInputStream(sounds[soundIndex]);
             Clip clip = AudioSystem.getClip();
 
             if (music) {
@@ -76,8 +75,8 @@ public class Sound {
      * Stop the sound that is currently playing
      */
     public void stop() {
-        //musicClip.stop();
-        //musicClip.close();
+        musicClip.stop();
+        musicClip.close();
     }
 
     /**
