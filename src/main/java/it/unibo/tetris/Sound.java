@@ -2,6 +2,7 @@ package it.unibo.tetris;
 
 import java.net.URL;
 import javax.sound.sampled.*;
+import javax.sound.sampled.LineEvent;
 
 /**
  * Class {@link Sound} that manage the sounds of the game.
@@ -24,7 +25,7 @@ public class Sound {
      * Fill {@link URL} array with soundtracks
      */
     public Sound() {
-        sounds[0] = getClass().getResource("/Tetris.wav");
+        sounds[0] = getClass().getResource("/src/res/sounds/Tetris.wav");
         sounds[1] = getClass().getResource("/delete line.wav");
         sounds[2] = getClass().getResource("/gameover.wav");
         sounds[3] = getClass().getResource("/rotation.wav");
@@ -46,10 +47,11 @@ public class Sound {
                 musicClip = clip;
             }
 
-            /*
-            * Behaviour of the class when the sound finishes playing.
-            */
             clip.open(ais);
+
+            /*
+            * Behaviour of the class when the sound finishes playing (in order to free some memory).
+            */
             clip.addLineListener(new LineListener() {
                 @Override
                 public void update(LineEvent event){
@@ -61,6 +63,8 @@ public class Sound {
             ais.close();
             clip.start();
         } catch (Exception e) {
+            System.out.println("An error occurred:");
+            e.printStackTrace();
         }
     }
 
