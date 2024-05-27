@@ -2,7 +2,6 @@ package it.unibo.tetris;
 
 import java.net.URL;
 import javax.sound.sampled.*;
-import javax.sound.sampled.LineEvent;
 
 /**
  * Class {@link Sound} that manage the sounds of the game.
@@ -25,11 +24,11 @@ public class Sound {
      * Fill {@link URL} array with soundtracks
      */
     public Sound() {
-        sounds[0] = getClass().getResource("/src/res/sounds/Tetris.wav");
-        sounds[1] = getClass().getResource("/delete line.wav");
-        sounds[2] = getClass().getResource("/gameover.wav");
-        sounds[3] = getClass().getResource("/rotation.wav");
-        sounds[4] = getClass().getResource("/touch floor.wav");
+        sounds[0] = getClass().getResource("/sounds/Tetris.wav");
+        sounds[1] = getClass().getResource("/sounds/delete line.wav");
+        sounds[2] = getClass().getResource("/sounds/gameover.wav");
+        sounds[3] = getClass().getResource("/sounds/rotation.wav");
+        sounds[4] = getClass().getResource("/sounds/touch floor.wav");
     }
 
     /**
@@ -72,8 +71,13 @@ public class Sound {
      * Method for playing a sound in looping mode.
      */
     public void loop() {
-        musicClip.loop(Clip.LOOP_CONTINUOUSLY);
+        if (musicClip != null) {
+            musicClip.loop(Clip.LOOP_CONTINUOUSLY);
+        } else {
+            System.err.println("musicClip is null, cannot loop sound.");
+        }
     }
+    
 
     /**
      * Stop the sound that is currently playing
