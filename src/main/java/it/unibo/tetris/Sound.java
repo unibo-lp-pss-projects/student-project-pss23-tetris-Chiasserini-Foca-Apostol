@@ -76,8 +76,8 @@ public class Sound {
      * Stop the sound that is currently playing
      */
     public void stop() {
-        musicClip.stop();
-        musicClip.close();
+        //musicClip.stop();
+        //musicClip.close();
     }
 
     /**
