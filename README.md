@@ -19,7 +19,7 @@
 
 ## Features
 
-Minimum mandatory features:
+Minimal and optional features that we have implemented:
 
 - [X] Behaviour of the game follows the original game TETRIS 
 - [X] ScoreBoard
