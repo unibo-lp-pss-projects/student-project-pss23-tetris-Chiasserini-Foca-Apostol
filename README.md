@@ -2,13 +2,13 @@
 
 <a href="https://www.codefactor.io/repository/github/raulchiasso/pss-chiasserinifocaapostol-tetris"><img src="https://www.codefactor.io/repository/github/raulchiasso/pss-chiasserinifocaapostol-tetris/badge" alt="CodeFactor" /></a>
 
-<h1 align="center">Revisited TETRIS</h1>
 
 <br />
 <div align="center">
   <a href="https://github.com/RaulChiasso/PSS-ChiasseriniFocaApostol-Tetris">
-    <img src="src/res/img/presentation.png">
+    <img src="src/res/img/presentation.png" height="1000">
   </a>
+</div>
 
 <br />
 <div align="left">
@@ -33,6 +33,12 @@ Minimum mandatory features:
 - **Move (Left - Right)**: `A` `D`
 - **Drop down**: `S`
 - **Pause**: `Spacebar`
+
+<br />
+<div align="center">
+  <img src="src/res/img/tutorial.png" height="1000">
+  </a>
+</div>
 
 ## Build and Execute
 
