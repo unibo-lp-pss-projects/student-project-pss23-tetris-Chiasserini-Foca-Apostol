@@ -36,7 +36,7 @@ Minimum mandatory features:
 
 <br />
 <div align="center">
-  <img src="src/res/img/tutorial.png" height="1000">
+  <img src="src/res/img/tutorial.png">
   </a>
 </div>
 
