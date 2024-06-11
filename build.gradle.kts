@@ -1,4 +1,5 @@
 plugins {
+    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.0.7-dev03-64cbefe"
     id("com.github.johnrengelman.shadow") version "8.1.0"
     java
     application
